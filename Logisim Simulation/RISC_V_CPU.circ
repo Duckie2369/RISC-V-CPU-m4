@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project source="2.14.6" version="1.0">
+This file is intended to be loaded by Logisim-evolution (https://github.com/reds-heig/logisim-evolution).
+<lib desc="#Wiring" name="0">
+    <tool name="Tunnel">
+      <a name="facing" val="east"/>
+    </tool>
+  </lib>
+  <lib desc="#Gates" name="1"/>
+  <lib desc="#Plexers" name="2">
+    <tool name="Multiplexer">
+      <a name="enable" val="false"/>
+    </tool>
+    <tool name="Demultiplexer">
+      <a name="enable" val="false"/>
+    </tool>
+  </lib>
+  <lib desc="#Arithmetic" name="3"/>
+  <lib desc="#Memory" name="4">
+    <tool name="Counter">
+      <a name="width" val="32"/>
+      <a name="max" val="0xffffffff"/>
+    </tool>
+    <tool name="ROM">
+      <a name="contents">addr/data: 8 8
+0
+</a>
+    </tool>
+  </lib>
+  <lib desc="#I/O" name="5"/>
+  <lib desc="#HDL-IP" name="6">
+    <tool name="VHDL Entity">
+      <a name="content">--------------------------------------------------------------------------------&#13;
+-- HEIG-VD, institute REDS, 1400 Yverdon-les-Bains&#13;
+-- Project :&#13;
+-- File    :&#13;
+-- Autor   :&#13;
+-- Date    :&#13;
+--&#13;
+--------------------------------------------------------------------------------&#13;
+-- Description :&#13;
+--&#13;
+--------------------------------------------------------------------------------&#13;
+&#13;
+library ieee;&#13;
+  use ieee.std_logic_1164.all;&#13;
+  --use ieee.numeric_std.all;&#13;
+&#13;
+entity VHDL_Component is&#13;
+  port(&#13;
+  ------------------------------------------------------------------------------&#13;
+  --Insert input ports below&#13;
+    horloge_i  : in  std_logic;                    -- input bit example&#13;
+    val_i      : in  std_logic_vector(3 downto 0); -- input vector example&#13;
+  ------------------------------------------------------------------------------&#13;
+  --Insert output ports below&#13;
+    max_o      : out std_logic;                    -- output bit example&#13;
+    cpt_o      : out std_logic_Vector(3 downto 0)  -- output vector example&#13;
+    );&#13;
+end VHDL_Component;&#13;
+&#13;
+--------------------------------------------------------------------------------&#13;
+--Complete your VHDL description below&#13;
+architecture type_architecture of VHDL_Component is&#13;
+&#13;
+&#13;
+begin&#13;
+&#13;
+&#13;
+end type_architecture;&#13;
+</a>
+    </tool>
+  </lib>
+  <lib desc="#TCL" name="7">
+    <tool name="TclGeneric">
+      <a name="content">library ieee;&#13;
+use ieee.std_logic_1164.all;&#13;
+&#13;
+entity TCL_Generic is&#13;
+  port(&#13;
+    --Insert input ports below&#13;
+    horloge_i  : in  std_logic;                    -- input bit example&#13;
+    val_i      : in  std_logic_vector(3 downto 0); -- input vector example&#13;
+&#13;
+	  --Insert output ports below&#13;
+    max_o      : out std_logic;                    -- output bit example&#13;
+    cpt_o      : out std_logic_Vector(3 downto 0)  -- output vector example&#13;
+  );&#13;
+end TCL_Generic;&#13;
+</a>
+    </tool>
+  </lib>
+  <lib desc="#Base" name="8">
+    <tool name="Text Tool">
+      <a name="text" val=""/>
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="halign" val="center"/>
+      <a name="valign" val="base"/>
+    </tool>
+  </lib>
+  <lib desc="#BFH-Praktika" name="9"/>
+  <main name="CPU"/>
+  <options>
+    <a name="gateUndefined" val="ignore"/>
+    <a name="simlimit" val="1000"/>
+    <a name="simrand" val="0"/>
+    <a name="tickmain" val="half_period"/>
+  </options>
+  <mappings>
+    <tool lib="8" map="Button2" name="Menu Tool"/>
+    <tool lib="8" map="Button3" name="Menu Tool"/>
+    <tool lib="8" map="Ctrl Button1" name="Menu Tool"/>
+  </mappings>
+  <toolbar>
+    <tool lib="8" name="Poke Tool"/>
+    <tool lib="8" name="Edit Tool"/>
+    <tool lib="8" name="Text Tool">
+      <a name="text" val=""/>
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="halign" val="center"/>
+      <a name="valign" val="base"/>
+    </tool>
+    <sep/>
+    <tool lib="0" name="Pin"/>
+    <tool lib="0" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </tool>
+    <tool lib="1" name="NOT Gate"/>
+    <tool lib="1" name="AND Gate"/>
+    <tool lib="1" name="OR Gate"/>
+  </toolbar>
+  <circuit name="CPU">
+    <a name="circuit" val="CPU"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="SansSerif bold 16"/>
+    <a name="circuitnamedbox" val="true"/>
+    <a name="circuitvhdlpath" val=""/>
+    <comp loc="(820,480)" name="Program_Counter"/>
+  </circuit>
+  <circuit name="Program_Counter">
+    <a name="circuit" val="Program_Counter"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="SansSerif bold 16"/>
+    <a name="circuitnamedbox" val="true"/>
+    <a name="circuitvhdlpath" val=""/>
+    <appear>
+      <text fill="#404040" font-family="Dialog" font-size="12" text-anchor="start" x="36" y="64">JUMP</text>
+      <text font-family="Dialog" font-size="12" text-anchor="start" x="37" y="124">ADDRESS IN</text>
+      <rect height="3" stroke="none" width="10" x="21" y="79"/>
+      <text font-family="SansSerif" font-size="20" font-weight="bold" text-anchor="middle" x="204" y="87">PROGRAM COUNTER</text>
+      <text fill="#404040" font-family="Dialog" font-size="12" text-anchor="start" x="36" y="84">CLOCK</text>
+      <text fill="#404040" font-family="Dialog" font-size="12" text-anchor="start" x="66" y="64"/>
+      <rect height="3" stroke="none" width="10" x="21" y="59"/>
+      <text font-family="SansSerif" font-size="12" text-anchor="end" x="379" y="55">ADDRESS OUT</text>
+      <rect height="4" stroke="none" width="11" x="21" y="118"/>
+      <text fill="#404040" font-family="Dialog" font-size="12" text-anchor="end" x="376" y="74"/>
+      <text fill="#404040" font-family="Dialog" font-size="12" text-anchor="start" x="36" y="44">RESET</text>
+      <text fill="#404040" font-family="Dialog" font-size="12" text-anchor="end" x="376" y="54"/>
+      <rect fill="none" height="121" stroke="#000000" stroke-width="2" width="362" x="30" y="20"/>
+      <rect height="3" stroke="none" width="10" x="21" y="39"/>
+      <circ-port height="10" pin="1120,70" width="10" x="385" y="45"/>
+      <circ-port height="8" pin="190,280" width="8" x="16" y="116"/>
+      <circ-port height="8" pin="190,210" width="8" x="16" y="76"/>
+      <circ-port height="8" pin="190,170" width="8" x="16" y="56"/>
+      <circ-port height="8" pin="820,70" width="8" x="16" y="36"/>
+      <circ-anchor facing="east" height="6" width="6" x="387" y="47"/>
+    </appear>
+    <wire from="(1120,70)" to="(1200,70)"/>
+    <wire from="(650,310)" to="(770,310)"/>
+    <wire from="(190,210)" to="(250,210)"/>
+    <wire from="(400,310)" to="(420,310)"/>
+    <wire from="(300,220)" to="(420,220)"/>
+    <wire from="(190,340)" to="(400,340)"/>
+    <wire from="(190,170)" to="(300,170)"/>
+    <wire from="(250,230)" to="(420,230)"/>
+    <wire from="(300,170)" to="(300,220)"/>
+    <wire from="(250,210)" to="(250,230)"/>
+    <wire from="(400,310)" to="(400,340)"/>
+    <wire from="(190,280)" to="(420,280)"/>
+    <wire from="(820,70)" to="(900,70)"/>
+    <comp lib="0" loc="(900,70)" name="Tunnel">
+      <a name="width" val="32"/>
+      <a name="label" val="ADDR_IN"/>
+    </comp>
+    <comp lib="0" loc="(1120,70)" name="Pin">
+      <a name="output" val="true"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(770,310)" name="Tunnel">
+      <a name="width" val="32"/>
+      <a name="label" val="ADDR_OUT"/>
+    </comp>
+    <comp lib="0" loc="(190,280)" name="Pin"/>
+    <comp lib="4" loc="(420,200)" name="Counter">
+      <a name="width" val="32"/>
+      <a name="max" val="0xffffffff"/>
+    </comp>
+    <comp lib="0" loc="(190,210)" name="Pin"/>
+    <comp lib="0" loc="(190,170)" name="Pin"/>
+    <comp lib="0" loc="(1200,70)" name="Tunnel">
+      <a name="width" val="32"/>
+      <a name="label" val="ADDR_OUT"/>
+    </comp>
+    <comp lib="0" loc="(190,340)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="width" val="32"/>
+      <a name="label" val="ADDR_IN"/>
+    </comp>
+    <comp lib="0" loc="(820,70)" name="Pin">
+      <a name="width" val="32"/>
+    </comp>
+  </circuit>
+</project>
