@@ -47,7 +47,9 @@
    $next_pc[31:0] = $reset ? 32'b0 : $pc[31:0] + 1;
    $pc[31:0] = >>1$next_pc[31:0];
    
-   
+   `READONLY_MEM($pc, $$instr[31:0])
+   // "$$" means assigned signals
+                   
    // Assert these to end simulation (before Makerchip cycle limit).
    *passed = 1'b0;
    *failed = *cyc_cnt > M4_MAX_CYC;
