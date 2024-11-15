@@ -44,12 +44,46 @@
    
    
    // YOUR CODE HERE
+   // Program Counter
    $next_pc[31:0] = $reset ? 32'b0 : $pc[31:0] + 1;
    $pc[31:0] = >>1$next_pc[31:0];
    
+   //Instruction Memory
    `READONLY_MEM($pc, $$instr[31:0])
    // "$$" means assigned signals
-                   
+   
+   //Decoder
+   $is_u_instr = $instr[6:2] ==? 5'b0x101;
+   $is_b_instr = $instr[6:2] == 5'b11000;
+   $is_s_instr = $instr[6:2] ==? 5'b0100x;
+   $is_j_instr = $instr[6:2] == 5'b11011;
+   $is_r_instr = $instr[6:2] ==? 5'b01xxx || $instr[6:2] == 5'b10100;
+   $is_i_instr = $instr[6:2] ==? 5'b0000x || $instr[6:2] ==? 5'b001x0 || $instr[6:2] == 5'b11001;
+   
+   //Non-immediate fields
+   $rs2[4:0]    = $instr[24:20];
+   $rs1[4:0]    = $instr[19:15];
+   $funct3[2:0] = $instr[14:12];
+   $rd[4:0]     = $instr[11:7];
+   $opcode[6:0] = $instr[6:0];
+   
+   //Validation of these fields
+   $rd_valid = ~($is_s_instr || $is_b_instr || $instr[11:7] == 5'b0);
+   $imm_valid = ~$is_r_instr;
+   $rs1_valid = ~($is_u_instr || $is_j_instr);
+   $rs2_valid = ($is_r_instr || $is_s_instr || $is_b_instr);
+   
+   //Turn off warning for unused variables in LOG
+   `BOGUS_USE($rd $rd_valid $rs1 $rs1_valid $rs2 $rs2_valid $funct3 $imm_valid $opcode) 
+   
+   // Extracting the immediate field from the instruction
+   $imm[31:0] = $is_i_instr ? {{21{$instr[31]}}, $instr[30:20]} :
+                $is_s_instr ? {{21{$instr[31]}}, $instr[30:25], $instr[11:8], $instr[7]} :
+                $is_b_instr ? {{19{$instr[31]}}, {2{$instr[7]}}, $instr[30:25],$instr[11:8], 1'b0} :
+                $is_u_instr ? {$instr[31], $instr[30:20], $instr[19:12], 12'b0} :
+                $is_j_instr ? {{11{$instr[31]}}, $instr[19:12], {2{$instr[20]}}, $instr[30:21], 1'b0} :
+                32'b0 ;
+   
    // Assert these to end simulation (before Makerchip cycle limit).
    *passed = 1'b0;
    *failed = *cyc_cnt > M4_MAX_CYC;
