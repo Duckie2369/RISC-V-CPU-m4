@@ -42,6 +42,7 @@
    $is_load = ($opcode ==? 7'b0x00011);
    
    //Non-immediate fields
+   $funct7[6:0] = $instr[31:25];
    $rs2[4:0]    = $instr[24:20];
    $rs1[4:0]    = $instr[19:15];
    $funct3[2:0] = $instr[14:12];
@@ -63,7 +64,7 @@
                 32'b0 ;
    
    // A single bit vector signal to determine the specific instruction
-   $dec_bits[10:0] = {$instr[30],$funct3,$opcode};
+   $dec_bits[10:0] = {$funct7[5],$funct3,$opcode};
    
    // Some basic instruction 
    $is_beq  = $dec_bits ==? 11'bx_000_1100011;
@@ -74,6 +75,27 @@
    $is_bgeu = $dec_bits ==? 11'bx_111_1100011;
    $is_addi = $dec_bits ==? 11'bx_000_0010011;
    $is_add  = $dec_bits ==  11'b0_000_0110011;
+   $is_slti = $dec_bits ==? 11'bx0100010011;
+   $is_sltiu = $dec_bits ==? 11'bx0110010011;
+   $is_xori = $dec_bits ==? 11'bx1000010011;
+   $is_ori = $dec_bits ==? 11'bx1100010011;
+   $is_andi = $dec_bits ==? 11'bx1110010011;
+   $is_slli = $dec_bits ==? 11'b00010010011;
+   $is_srli = $dec_bits ==? 11'b01010010011;
+   $is_srai = $dec_bits ==? 11'b11010010011;
+   $is_sub = $dec_bits ==? 11'b10000110011;
+   $is_sll = $dec_bits ==? 11'b00010110011;
+   $is_slt = $dec_bits ==? 11'b00100110011;
+   $is_sltu = $dec_bits ==? 11'b00110110011;
+   $is_xor = $dec_bits ==? 11'b01000110011;
+   $is_srl = $dec_bits ==? 11'b01010110011;
+   $is_sra = $dec_bits ==? 11'b11010110011;
+   $is_or = $dec_bits ==? 11'b01100110011;
+   $is_and = $dec_bits ==? 11'b01110110011;
+   $is_lui = $dec_bits ==? 11'bxxxx0110111;
+   $is_auipc = $dec_bits ==? 11'bxxxx0010111;
+   $is_jal = $dec_bits ==? 11'bxxxx1101111;
+   $is_jalr = $dec_bits ==? 11'bx0001100111;
    
    
    //Turn off warning for unused variables in LOG
