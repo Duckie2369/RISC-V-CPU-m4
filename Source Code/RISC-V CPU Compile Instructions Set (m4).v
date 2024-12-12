@@ -60,6 +60,9 @@
    $is_r_instr = $instr[6:2] ==? 5'b01xxx || $instr[6:2] == 5'b10100;
    $is_i_instr = $instr[6:2] ==? 5'b0000x || $instr[6:2] ==? 5'b001x0 || $instr[6:2] == 5'b11001;
    
+   // Assigning load instructions using only the opcode
+   $is_load = ($opcode ==? 7'b0x00011);
+   
    //Non-immediate fields
    $rs2[4:0]    = $instr[24:20];
    $rs1[4:0]    = $instr[19:15];
@@ -97,6 +100,14 @@
    
    //Turn off warning for unused variables in LOG
    `BOGUS_USE($rd $rd_valid $rs1 $rs1_valid $rs2 $rs2_valid $imm_valid) 
+   
+   // ALU
+   $result[31:0] = $is_addi ? $src1_value + $imm :
+                   $is_add  ? $src1_value + $src2_value:
+                   32'b0;
+   
+   // Adding a MUX to select either result or $ld_data depending on instruction
+   $result_write_rf[31:0] = $is_load ? $ld_data[31:0] : $result;
    
    // Assert these to end simulation (before Makerchip cycle limit).
    *passed = 1'b0;
