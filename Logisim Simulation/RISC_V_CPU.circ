@@ -101,9 +101,13 @@ end type_architecture;&#13;
     <a name="appearance" val="logisim_evolution"/>
     <a name="circuit" val="CPU"/>
     <a name="simulationFrequency" val="1.0"/>
+    <comp loc="(1400,250)" name="Register_File"/>
+    <comp loc="(1730,250)" name="ALU"/>
     <comp loc="(510,210)" name="Program_Counter"/>
-    <comp loc="(830,210)" name="Instruction_Memory"/>
-    <wire from="(510,210)" to="(570,210)"/>
+    <comp loc="(840,260)" name="Instruction_Decoder"/>
+    <comp loc="(840,540)" name="Instruction_Memory"/>
+    <wire from="(510,210)" to="(580,210)"/>
+    <wire from="(580,210)" to="(580,540)"/>
   </circuit>
   <circuit name="Program_Counter">
     <a name="appearance" val="custom"/>
@@ -1792,5 +1796,34 @@ end type_architecture;&#13;
     <wire from="(990,570)" to="(1550,570)"/>
     <wire from="(990,750)" to="(1380,750)"/>
     <wire from="(990,750)" to="(990,1970)"/>
+  </circuit>
+  <circuit name="ALU">
+    <a name="appearance" val="logisim_evolution"/>
+    <a name="circuit" val="ALU"/>
+    <a name="circuitnamedboxfixedsize" val="true"/>
+    <a name="simulationFrequency" val="1.0"/>
+    <comp lib="0" loc="(270,230)" name="Pin">
+      <a name="appearance" val="classic"/>
+      <a name="label" val="a"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(270,340)" name="Pin">
+      <a name="appearance" val="classic"/>
+      <a name="label" val="b_or_imm"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(780,230)" name="Pin">
+      <a name="appearance" val="classic"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="result"/>
+      <a name="output" val="true"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp loc="(690,230)" name="Arithmetic"/>
+    <wire from="(270,230)" to="(470,230)"/>
+    <wire from="(270,340)" to="(320,340)"/>
+    <wire from="(320,250)" to="(320,340)"/>
+    <wire from="(320,250)" to="(470,250)"/>
+    <wire from="(690,230)" to="(780,230)"/>
   </circuit>
 </project>
