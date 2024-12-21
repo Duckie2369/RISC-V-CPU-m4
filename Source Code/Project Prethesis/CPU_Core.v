@@ -21,7 +21,7 @@ module CPU_Core(clk, reset, W_PC_out, W_alu_out);
 	// Decoder
 	Decoder C5(.clk(clk), .instr(W_instruction), .rs1(W_rs1), .rs2(W_rs2), .rd(W_rd), .imm(W_imm));
 	// Control for enable
-	Control C6(.clk(clk), .rd_valid(W_rd_valid), .rs1_valid(W_rs1_valid), .rs2_valid(W_rs2_valid), .is_s_instr(W_is_s_instr), .is_load(W_is_load), .intstruction(W_instruction));
+	Control C6(.clk(clk), .rd_valid(W_rd_valid), .rs1_valid(W_rs1_valid), .rs2_valid(W_rs2_valid), .is_s_instr(W_is_s_instr), .is_load(W_is_load), .instruction(W_instruction));
 	// Register File
 	Register_File C7(.clk(clk), .wr_en(W_rd_valid), .wr_addr(W_rd), .wr_data(W_result_write_rf), .rd_en1(W_rs1_valid), .rd_addr1(W_rs1), .rd_data1(W_rd_data1), .rd_en2(W_rs2_valid), .rd_addr2(W_rs2), .rd_data2(W_rd_data2));
 	// ALU
