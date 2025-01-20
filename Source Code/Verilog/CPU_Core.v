@@ -12,10 +12,11 @@ module CPU_Core(clk, reset, W_PC_in, W_PC_out, W_instruction, W_rs1, W_rd_data1,
 	wire  [2:0] W_funct3;
 	wire	taken_br, is_jal, is_jalr, W_rd_valid, W_rs1_valid, W_rs2_valid, W_is_s_instr, W_is_load;
 	
+  // PC increases by 1 (4 bytes)
+  Adder32Bit C3(.clk(clk), .reset(reset), .input1(W_PC_in), .input2(32'd4), .out(W_PC_out));
 	// Program Counter
 	Program_Counter C1(.clk(clk), .reset(reset), .taken_br(taken_br), .is_jal(is_jal), .is_jalr(is_jalr), .imm(W_imm), .rs1_data(W_rd_data1), .PC_in(W_PC_out), .PC_out(W_PC_in));
-	// PC increases by 1
-  Adder32Bit C3(.reset(reset), .input1(W_PC_in), .input2(32'd4), .out(W_PC_out));
+  
 	// Instruction Memory
 	Instruction_Memory C4(.read_address(W_PC_out), .read_data(W_instruction), .reset(reset));
 	// Decoder
@@ -40,25 +41,27 @@ module Program_Counter (clk, reset, taken_br, is_jal, is_jalr, imm, rs1_data, PC
 	reg [31:0] PC_out;
 	always @(posedge clk or posedge reset)
 	begin
-		if(taken_br == 1'b1)
+      	if(reset)
+        	PC_out <= 32'b0;
+		else if(taken_br == 1'b1)
 			PC_out <= PC_in + imm;
 		else if(is_jal == 1'b1)
 			PC_out <= PC_in + imm;
-		else if(is_jalr == 1'b1)
+      else if(is_jalr == 1'b1)
 			PC_out <= rs1_data + imm;
 		else
 			PC_out <= PC_in;
 	end
 endmodule
 
-module Adder32Bit(reset, input1, input2, out);
-  input reset;
+module Adder32Bit(clk, reset, input1, input2, out);
+  input clk, reset;
 	input [31:0] input1, input2;
 	output [31:0] out;
 	reg [31:0] out;
-  always @(input1 or input2 or posedge reset)
-    if(reset==1'b1) begin
-      out <= 32'b0;
+  always @(input1 or input2 or posedge reset or posedge clk)
+    if(reset) begin
+      out <= input1;
     end
      else
 		begin
@@ -91,10 +94,16 @@ module Instruction_Memory (read_address, read_data, reset);
       Imemory[8] = 32'b00000000100_000000000_01000_11011_11;
       
       //jalr $s0 14($t1)	//	$s0 = pc + 4 (12 = 8 + 4), pc = $t1 + 14 (16 = 2 + 14)
-      Imemory[12] = 32'b0000000011100011000001000_11001_11;
+      Imemory[12] = 32'b000000001110_00110_000_01000_11001_11;
+      
+      //sb $t3 0($a0)  		//	$a0[7:0] = $t3[7:0]
+      Imemory[16] = 32'b0000000_11100_01010_000_00000_01000_11;
+      
+      //lb $a1 0($a0)		//	$a1[7:0] = $a0[7:0]
+      Imemory[20] = 32'b000000000000_01010_000_01011_00000_11;
       
       //jal $s0 0	//	$s0 = pc + 4 (4 = 0 + 4), pc = zero + 0 (0 = 0 + 0)
-      Imemory[16] = 32'b00000000000000000000010001101111; 
+      Imemory[24] = 32'b00000000000000000000_01000_11011_11; 
 	end
 endmodule
 
@@ -393,7 +402,6 @@ module Data_Memory (clk, addr, wr_en, wr_data, rd_en, rd_data);
             begin
 		           DMemory[k] = 32'b0;
 			end
-		//DMemory[11] = 99;
 	end
 		
 	always @(posedge clk)
