@@ -1,0 +1,83 @@
+module decode(SW,LEDR,LEDG,KEY, HEX7, HEX6, HEX5, HEX4, HEX3, HEX2, HEX1, HEX0);
+	input [17:0] SW;
+    input [3:0] KEY;
+    output [0:6] HEX7, HEX6, HEX5, HEX4, HEX3, HEX2, HEX1, HEX0;
+	output [17:0] LEDR;
+	output [7:0] LEDG;
+
+	wire [31:0] W_instr, W_imm;
+	wire [4:0] W_rs1, W_rs2, W_rd;
+	// Change the code below to test
+	// lui x1 12
+	assign W_instr = 32'b0000_0000_0000_0000_1100_0000_1011_0111;
+	
+	// auipc x0 5
+	// assign W_instr = 32'b0000_0000_0000_0000_0101_0000_0001_0111;
+	
+	// beq x2 x3 1
+	// assign W_instr = 32'b0000_0000_0011_0001_0000_0000_0110_0011;
+	
+	// sb x1 4(x2)
+	// assign W_instr = 32'b0000_0000_0001_0001_0000_0010_0010_0011;
+	
+	// jalr t1 x0
+	// assign W_instr = 32'b0000_0000_0000_0000_0000_0011_0110_0111;
+	
+	hex_ssd C0(W_imm[3:0], HEX0);
+	hex_ssd C1(W_imm[7:4], HEX1);
+	
+	hex_ssd C2(W_rd[3:0], HEX2);
+	hex_ssd C3(W_rd[4], HEX3);
+	
+	hex_ssd C4(W_rs2[3:0], HEX4);
+	hex_ssd C5(W_rs2[4], HEX5);
+	
+	hex_ssd C6(W_rs1[3:0], HEX6);
+	hex_ssd C7(W_rs1[4], HEX7);
+
+	Decoder DUT(.clk(KEY[0]), .instr(W_instr), .rs1(W_rs1), .rs2(W_rs2), .rd(W_rd), .opcode(LEDG[4:0]), .funct3(LEDG[7:5]), .funct7(LEDR[6:0]), .imm(W_imm));
+endmodule
+
+module Decoder(
+	input clk,
+	input [31:0] instr,
+	
+	output [4:0] rs1,rs2,
+	output [4:0] rd,
+	output [4:0] opcode,
+	output [2:0] funct3,
+	output [6:0] funct7,
+	output reg [31:0] imm
+	);
+	
+	parameter	
+					OP_LUI			= 5'b01101,
+					OP_AUIPC			= 5'b00101,
+					OP_JAL			= 5'b11011,
+					OP_JALR			= 5'b11001,
+					
+					OP_BRANCH		= 5'b11000,
+					
+					OP_STORE			= 5'b01000,
+					
+					OP_LOAD			= 5'b00000;
+
+	//Non-immediate fields
+	assign rs1 = instr[19:15];
+	assign rs2 = instr[24:20];
+	assign opcode = instr[6:2];
+	assign funct3 = instr[14:12];
+	assign funct7 = instr[31:25];
+    assign rd = instr[11:7];
+	always @(posedge clk) begin
+		// Extracting the immediate field from the instruction
+		case(opcode)
+			OP_LUI, OP_AUIPC: imm = {instr[31:12], {12{1'b0}}}; // U-type
+			OP_JAL: imm = {{11{instr[31]}}, instr[19:12], {2{instr[20]}}, instr[30:21], 1'b0}; // J-type
+			OP_BRANCH: imm = {{19{instr[31]}}, {2{instr[7]}}, instr[30:25], instr[11:8], 1'b0}; // B-type
+         OP_STORE: imm = {{21{instr[31]}}, instr[30:25], instr[11:8], instr[7]}; // S-type
+         OP_JALR: imm = {{21{instr[31]}}, instr[30:20]}; // I-type
+			default: imm = {{21{instr[31]}}, instr[30:20]}; // I-type
+      endcase
+	end
+endmodule
