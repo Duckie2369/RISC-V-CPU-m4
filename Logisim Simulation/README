@@ -1,7 +1,0 @@
-https://github.com/logisim-evolution/logisim-evolution/releases
-1. Access to the link above to download Logisim Evolution to run .circ file
-2. Download the "logisim-evolution-3.9.0-x86_64.msi" in the Assets and run
-3. Download the .circ file
-4. File -> Open -> Choose the .circ file you have just downloaded
-5. You will see the circuit layout and you can run the simulation by enabling the clock tick
-
