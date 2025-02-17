@@ -6,8 +6,16 @@ This free mini-workshop, offered by by [Steve Hoover](https://www.linkedin.com/i
 
 ![VIZ](LF_VIZ.png)
 
-## RISC-V Reference Solution
+## RISC-V Block Diagram
+
+![BD](Block Diagram.png)
+
+## RISC-V Visualization
 
 Here's a pre-built logic diagram of the final CPU. Ctrl-click here to [explore in its own tab](https://raw.githubusercontent.com/stevehoover/LF-Building-a-RISC-V-CPU-Core/main/lib/riscv.svg).
 
 ![Final Core](lib/riscv.svg)
+
+## RISC-V Datapath
+
+![BD](Datapath.png)
