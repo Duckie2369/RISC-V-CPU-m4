@@ -8,7 +8,7 @@ This free mini-workshop, offered by by [Steve Hoover](https://www.linkedin.com/i
 
 ## RISC-V Block Diagram
 
-![BD](Block Diagram.png)
+![BD](Block_Diagram.png)
 
 ## RISC-V Visualization
 
@@ -18,4 +18,6 @@ Here's a pre-built logic diagram of the final CPU. Ctrl-click here to [explore i
 
 ## RISC-V Datapath
 
-![BD](Datapath.png)
+![DP](Datapath.png)
+
+Here's the datapath designed from the block diagram with a few extend components to compatible with Verilog code conversion and Altera DE2 Kit testing.
