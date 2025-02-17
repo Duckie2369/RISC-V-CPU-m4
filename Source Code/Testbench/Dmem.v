@@ -6,7 +6,7 @@ module Dmem(SW,LEDR,LEDG,KEY);
 
 	assign LEDR=SW;
 
-	Data_Memory DUT(.addr(SW[17:13]), .wr_en(SW[12]), .wr_data(SW[11:8]), .rd_en(SW[7]), .rd_data(LEDG[7:0]));
+	Data_Memory DUT(.clk(SW[17]), .addr(SW[16:12]), .wr_en(SW[11]), .wr_data(SW[10:7]), .rd_en(SW[6]), .rd_data(LEDG[7:0]));
 endmodule
 
 		

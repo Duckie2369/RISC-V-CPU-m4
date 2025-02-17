@@ -31,7 +31,7 @@ module Data_Memory (clk, addr, wr_en, wr_data, rd_en, rd_data);
 		//DMemory[11] = 99;
 	end
 		
-	always @(wr_en or wr_data or addr)
+	always @(posedge clk)
 		begin
 			if (wr_en) DMemory[addr] = wr_data;
 		end

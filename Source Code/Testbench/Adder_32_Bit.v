@@ -16,14 +16,19 @@ module Adder_32_Bit(SW,LEDR,LEDG,KEY, HEX7, HEX6, HEX5, HEX4, HEX3, HEX2, HEX1, 
 	hex_ssd C6(SW[11:8], HEX6);
 	hex_ssd C7(SW[15:12], HEX7);
 
-	Adder32Bit DUT(.input1(SW[15:8]), .input2(SW[7:0]), .out(W_out)); 
+	Adder32Bit DUT(.clk(SW[17]), .reset(SW[16]), .input1(SW[15:8]), .input2(SW[7:0]), .out(W_out)); 
 endmodule
 
-module Adder32Bit(input1, input2, out);
+module Adder32Bit(clk, reset, input1, input2, out);
+  input clk, reset;
 	input [31:0] input1, input2;
 	output [31:0] out;
 	reg [31:0] out;
-	always @(input1 or input2)
+  always @(input1 or input2 or posedge reset or posedge clk)
+    if(reset) begin
+      out <= input1;
+    end
+     else
 		begin
 			out <= input1 + input2;
 		end

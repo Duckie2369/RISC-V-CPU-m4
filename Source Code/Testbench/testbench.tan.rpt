@@ -1,5 +1,5 @@
 Classic Timing Analyzer report for testbench
-Sat Dec 28 23:05:37 2024
+Sun Jan 26 23:20:59 2025
 Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
 
 
@@ -34,14 +34,14 @@ applicable agreement for further details.
 
 
 
-+-------------------------------------------------------------------------------------------------------------------------------+
-; Timing Analyzer Summary                                                                                                       ;
-+------------------------------+-------+---------------+-------------+--------+----------+------------+----------+--------------+
-; Type                         ; Slack ; Required Time ; Actual Time ; From   ; To       ; From Clock ; To Clock ; Failed Paths ;
-+------------------------------+-------+---------------+-------------+--------+----------+------------+----------+--------------+
-; Worst-case tpd               ; N/A   ; None          ; 9.435 ns    ; SW[16] ; LEDR[16] ; --         ; --       ; 0            ;
-; Total number of failed paths ;       ;               ;             ;        ;          ;            ;          ; 0            ;
-+------------------------------+-------+---------------+-------------+--------+----------+------------+----------+--------------+
++------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                      ;
++------------------------------+-------+---------------+-------------+--------+---------+------------+----------+--------------+
+; Type                         ; Slack ; Required Time ; Actual Time ; From   ; To      ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+-------+---------------+-------------+--------+---------+------------+----------+--------------+
+; Worst-case tpd               ; N/A   ; None          ; 11.560 ns   ; SW[17] ; LEDG[2] ; --         ; --       ; 0            ;
+; Total number of failed paths ;       ;               ;             ;        ;         ;            ;          ; 0            ;
++------------------------------+-------+---------------+-------------+--------+---------+------------+----------+--------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------+
@@ -98,54 +98,44 @@ applicable agreement for further details.
 +-------+-------------------+-----------------+--------+----------+
 ; Slack ; Required P2P Time ; Actual P2P Time ; From   ; To       ;
 +-------+-------------------+-----------------+--------+----------+
-; N/A   ; None              ; 9.435 ns        ; SW[16] ; LEDR[16] ;
+; N/A   ; None              ; 11.560 ns       ; SW[17] ; LEDG[2]  ;
+; N/A   ; None              ; 11.429 ns       ; SW[17] ; LEDG[3]  ;
+; N/A   ; None              ; 11.429 ns       ; SW[17] ; LEDG[0]  ;
+; N/A   ; None              ; 11.415 ns       ; SW[17] ; LEDG[1]  ;
+; N/A   ; None              ; 11.135 ns       ; SW[16] ; LEDG[1]  ;
+; N/A   ; None              ; 11.088 ns       ; SW[16] ; LEDG[2]  ;
+; N/A   ; None              ; 10.966 ns       ; SW[16] ; LEDG[0]  ;
+; N/A   ; None              ; 10.946 ns       ; SW[16] ; LEDG[3]  ;
+; N/A   ; None              ; 9.481 ns        ; SW[17] ; LEDR[17] ;
+; N/A   ; None              ; 9.454 ns        ; SW[16] ; LEDR[16] ;
 ; N/A   ; None              ; 9.304 ns        ; SW[14] ; LEDR[14] ;
 ; N/A   ; None              ; 9.268 ns        ; SW[13] ; LEDR[13] ;
-; N/A   ; None              ; 9.263 ns        ; SW[17] ; LEDR[17] ;
 ; N/A   ; None              ; 9.074 ns        ; SW[15] ; LEDR[15] ;
-; N/A   ; None              ; 8.027 ns        ; SW[9]  ; LEDG[4]  ;
-; N/A   ; None              ; 7.998 ns        ; SW[8]  ; LEDG[4]  ;
-; N/A   ; None              ; 7.676 ns        ; SW[10] ; LEDG[4]  ;
-; N/A   ; None              ; 7.577 ns        ; SW[7]  ; LEDG[4]  ;
-; N/A   ; None              ; 7.178 ns        ; SW[2]  ; LEDG[4]  ;
-; N/A   ; None              ; 7.047 ns        ; SW[6]  ; LEDG[4]  ;
-; N/A   ; None              ; 6.817 ns        ; SW[11] ; LEDG[4]  ;
-; N/A   ; None              ; 6.808 ns        ; SW[5]  ; LEDG[3]  ;
-; N/A   ; None              ; 6.782 ns        ; SW[5]  ; LEDG[4]  ;
-; N/A   ; None              ; 6.769 ns        ; SW[3]  ; LEDG[2]  ;
-; N/A   ; None              ; 6.762 ns        ; SW[4]  ; LEDG[3]  ;
-; N/A   ; None              ; 6.725 ns        ; SW[4]  ; LEDG[4]  ;
-; N/A   ; None              ; 6.692 ns        ; SW[0]  ; LEDG[0]  ;
-; N/A   ; None              ; 6.688 ns        ; SW[3]  ; LEDG[4]  ;
-; N/A   ; None              ; 6.687 ns        ; SW[6]  ; LEDG[2]  ;
-; N/A   ; None              ; 6.634 ns        ; SW[1]  ; LEDG[0]  ;
-; N/A   ; None              ; 6.614 ns        ; SW[8]  ; LEDR[8]  ;
-; N/A   ; None              ; 6.570 ns        ; SW[5]  ; LEDG[2]  ;
-; N/A   ; None              ; 6.563 ns        ; SW[2]  ; LEDG[2]  ;
-; N/A   ; None              ; 6.528 ns        ; SW[4]  ; LEDG[2]  ;
-; N/A   ; None              ; 6.471 ns        ; SW[6]  ; LEDG[3]  ;
-; N/A   ; None              ; 6.299 ns        ; SW[7]  ; LEDR[7]  ;
-; N/A   ; None              ; 6.288 ns        ; SW[3]  ; LEDG[3]  ;
-; N/A   ; None              ; 6.286 ns        ; SW[3]  ; LEDG[0]  ;
-; N/A   ; None              ; 6.204 ns        ; SW[6]  ; LEDG[0]  ;
-; N/A   ; None              ; 6.135 ns        ; SW[5]  ; LEDG[1]  ;
-; N/A   ; None              ; 6.133 ns        ; SW[9]  ; LEDR[9]  ;
-; N/A   ; None              ; 6.091 ns        ; SW[2]  ; LEDG[0]  ;
-; N/A   ; None              ; 6.064 ns        ; SW[2]  ; LEDG[3]  ;
-; N/A   ; None              ; 6.053 ns        ; SW[4]  ; LEDG[1]  ;
-; N/A   ; None              ; 6.036 ns        ; SW[4]  ; LEDG[0]  ;
-; N/A   ; None              ; 5.802 ns        ; SW[6]  ; LEDG[1]  ;
-; N/A   ; None              ; 5.761 ns        ; SW[2]  ; LEDR[2]  ;
-; N/A   ; None              ; 5.709 ns        ; SW[11] ; LEDR[11] ;
-; N/A   ; None              ; 5.634 ns        ; SW[10] ; LEDR[10] ;
-; N/A   ; None              ; 5.619 ns        ; SW[3]  ; LEDG[1]  ;
-; N/A   ; None              ; 5.396 ns        ; SW[4]  ; LEDR[4]  ;
+; N/A   ; None              ; 7.717 ns        ; SW[8]  ; LEDG[0]  ;
+; N/A   ; None              ; 7.513 ns        ; SW[11] ; LEDG[3]  ;
+; N/A   ; None              ; 7.460 ns        ; SW[9]  ; LEDG[1]  ;
+; N/A   ; None              ; 7.372 ns        ; SW[10] ; LEDG[2]  ;
+; N/A   ; None              ; 6.976 ns        ; SW[7]  ; LEDG[3]  ;
+; N/A   ; None              ; 6.883 ns        ; SW[8]  ; LEDR[8]  ;
+; N/A   ; None              ; 6.756 ns        ; SW[9]  ; LEDR[9]  ;
+; N/A   ; None              ; 6.695 ns        ; SW[1]  ; LEDG[1]  ;
+; N/A   ; None              ; 6.593 ns        ; SW[2]  ; LEDG[2]  ;
+; N/A   ; None              ; 6.523 ns        ; SW[0]  ; LEDG[0]  ;
+; N/A   ; None              ; 6.312 ns        ; SW[3]  ; LEDG[3]  ;
+; N/A   ; None              ; 6.097 ns        ; SW[7]  ; LEDR[7]  ;
+; N/A   ; None              ; 6.096 ns        ; SW[4]  ; LEDG[0]  ;
+; N/A   ; None              ; 5.922 ns        ; SW[5]  ; LEDG[1]  ;
+; N/A   ; None              ; 5.879 ns        ; SW[6]  ; LEDG[2]  ;
+; N/A   ; None              ; 5.547 ns        ; SW[10] ; LEDR[10] ;
 ; N/A   ; None              ; 5.363 ns        ; SW[12] ; LEDR[12] ;
-; N/A   ; None              ; 5.313 ns        ; SW[1]  ; LEDR[1]  ;
-; N/A   ; None              ; 5.247 ns        ; SW[6]  ; LEDR[6]  ;
-; N/A   ; None              ; 5.215 ns        ; SW[5]  ; LEDR[5]  ;
-; N/A   ; None              ; 5.148 ns        ; SW[3]  ; LEDR[3]  ;
-; N/A   ; None              ; 4.854 ns        ; SW[0]  ; LEDR[0]  ;
+; N/A   ; None              ; 5.344 ns        ; SW[2]  ; LEDR[2]  ;
+; N/A   ; None              ; 5.334 ns        ; SW[11] ; LEDR[11] ;
+; N/A   ; None              ; 5.317 ns        ; SW[0]  ; LEDR[0]  ;
+; N/A   ; None              ; 5.220 ns        ; SW[5]  ; LEDR[5]  ;
+; N/A   ; None              ; 5.137 ns        ; SW[6]  ; LEDR[6]  ;
+; N/A   ; None              ; 5.089 ns        ; SW[3]  ; LEDR[3]  ;
+; N/A   ; None              ; 4.958 ns        ; SW[4]  ; LEDR[4]  ;
+; N/A   ; None              ; 4.848 ns        ; SW[1]  ; LEDR[1]  ;
 +-------+-------------------+-----------------+--------+----------+
 
 
@@ -155,17 +145,19 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II Classic Timing Analyzer
     Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
-    Info: Processing started: Sat Dec 28 23:05:36 2024
+    Info: Processing started: Sun Jan 26 23:20:59 2025
 Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off testbench -c testbench --timing_analysis_only
 Info: Parallel compilation is enabled and will use 4 of the 6 processors detected
-Info: Longest tpd from source pin "SW[16]" to destination pin "LEDR[16]" is 9.435 ns
-    Info: 1: + IC(0.000 ns) + CELL(0.822 ns) = 0.822 ns; Loc. = PIN_V1; Fanout = 1; PIN Node = 'SW[16]'
-    Info: 2: + IC(6.115 ns) + CELL(2.498 ns) = 9.435 ns; Loc. = PIN_AE12; Fanout = 0; PIN Node = 'LEDR[16]'
-    Info: Total cell delay = 3.320 ns ( 35.19 % )
-    Info: Total interconnect delay = 6.115 ns ( 64.81 % )
+Info: Longest tpd from source pin "SW[17]" to destination pin "LEDG[2]" is 11.560 ns
+    Info: 1: + IC(0.000 ns) + CELL(0.822 ns) = 0.822 ns; Loc. = PIN_V2; Fanout = 9; PIN Node = 'SW[17]'
+    Info: 2: + IC(6.522 ns) + CELL(0.419 ns) = 7.763 ns; Loc. = LCCOMB_X56_Y1_N8; Fanout = 1; COMB Node = 'mux3to1_main:DUT|out[2]~100'
+    Info: 3: + IC(0.248 ns) + CELL(0.275 ns) = 8.286 ns; Loc. = LCCOMB_X56_Y1_N18; Fanout = 1; COMB Node = 'mux3to1_main:DUT|out[2]~101'
+    Info: 4: + IC(0.786 ns) + CELL(2.488 ns) = 11.560 ns; Loc. = PIN_W19; Fanout = 0; PIN Node = 'LEDG[2]'
+    Info: Total cell delay = 4.004 ns ( 34.64 % )
+    Info: Total interconnect delay = 7.556 ns ( 65.36 % )
 Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 199 megabytes
-    Info: Processing ended: Sat Dec 28 23:05:37 2024
+    Info: Processing ended: Sun Jan 26 23:21:00 2025
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:00
 

@@ -30,261 +30,177 @@ Chip Device Options:
 ****************************
 
 - ATOM ------------------------
-	ATOM_NAME: Control:DUT|is_s_instr~1 -- NON-UNIQUE
+	ATOM_NAME: mux3to1_main:DUT|out[0]~96 -- NON-UNIQUE
 	Atom Hier Name: 
 	Atom Id: 48
 	Atom Type: cycloneii_lcell_comb
 
 	INPUTS (Driven By):
-		0: NO ITERM
-		1: NO ITERM
-		2: [DATAC]	  SW[3]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		3: [DATAD]	  SW[6]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		0: [DATAA]	  SW[0]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		1: [DATAB]	  SW[8]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		2: NO ITERM
+		3: [DATAD]	  SW[17]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:CONNECTED,NONE
 		4: NO ITERM
 	OUTPUTS (Int. Connections):
-		0: [COMBOUT]	Control:DUT|is_s_instr~1	LIT INDEX 0 FANOUTS 2
+		0: [COMBOUT]	mux3to1_main:DUT|out[0]~96	LIT INDEX 0 FANOUTS 1
 		1: NONE
 
 	PARAMETER LIST:
 		sum_lutc_input                 = datac
-		lut_mask                       = 000f
+		lut_mask                       = aacc
 
 
 - ATOM ------------------------
-	ATOM_NAME: Control:DUT|Equal1~0 -- NON-UNIQUE
+	ATOM_NAME: mux3to1_main:DUT|out[0]~97 -- NON-UNIQUE
 	Atom Hier Name: 
 	Atom Id: 49
 	Atom Type: cycloneii_lcell_comb
 
 	INPUTS (Driven By):
-		0: [DATAA]	  SW[0]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		1: [DATAB]	  SW[1]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		2: NO ITERM
-		3: NO ITERM
+		0: [DATAA]	  mux3to1_main:DUT|out[0]~96	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		1: [DATAB]	  SW[4]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		2: [DATAC]	  SW[16]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:CONNECTED,NONE
+		3: [DATAD]	  SW[17]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:CONNECTED,NONE
 		4: NO ITERM
 	OUTPUTS (Int. Connections):
-		0: [COMBOUT]	Control:DUT|Equal1~0	LIT INDEX 0 FANOUTS 1
+		0: [COMBOUT]	mux3to1_main:DUT|out[0]~97	LIT INDEX 0 FANOUTS 1
 		1: NONE
 
 	PARAMETER LIST:
 		sum_lutc_input                 = datac
-		lut_mask                       = 8888
+		lut_mask                       = 0aca
 
 
 - ATOM ------------------------
-	ATOM_NAME: Control:DUT|Equal1~1 -- NON-UNIQUE
+	ATOM_NAME: mux3to1_main:DUT|out[1]~98 -- NON-UNIQUE
 	Atom Hier Name: 
 	Atom Id: 50
 	Atom Type: cycloneii_lcell_comb
 
 	INPUTS (Driven By):
-		0: [DATAA]	  Control:DUT|is_s_instr~1	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		1: [DATAB]	  Control:DUT|Equal1~0	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		2: [DATAC]	  SW[2]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		3: [DATAD]	  SW[4]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		0: [DATAA]	  SW[1]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		1: [DATAB]	  SW[9]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		2: NO ITERM
+		3: [DATAD]	  SW[17]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:CONNECTED,NONE
 		4: NO ITERM
 	OUTPUTS (Int. Connections):
-		0: [COMBOUT]	Control:DUT|Equal1~1	LIT INDEX 0 FANOUTS 1
+		0: [COMBOUT]	mux3to1_main:DUT|out[1]~98	LIT INDEX 0 FANOUTS 1
 		1: NONE
 
 	PARAMETER LIST:
 		sum_lutc_input                 = datac
-		lut_mask                       = 0008
+		lut_mask                       = aacc
 
 
 - ATOM ------------------------
-	ATOM_NAME: Control:DUT|is_s_instr~2 -- NON-UNIQUE
+	ATOM_NAME: mux3to1_main:DUT|out[1]~99 -- NON-UNIQUE
 	Atom Hier Name: 
 	Atom Id: 51
 	Atom Type: cycloneii_lcell_comb
 
 	INPUTS (Driven By):
-		0: [DATAA]	  SW[5]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		1: [DATAB]	  SW[3]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		2: [DATAC]	  SW[4]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		3: [DATAD]	  SW[6]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		0: [DATAA]	  mux3to1_main:DUT|out[1]~98	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		1: [DATAB]	  SW[5]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		2: [DATAC]	  SW[16]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:CONNECTED,NONE
+		3: [DATAD]	  SW[17]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:CONNECTED,NONE
 		4: NO ITERM
 	OUTPUTS (Int. Connections):
-		0: [COMBOUT]	Control:DUT|is_s_instr~2	LIT INDEX 0 FANOUTS 2
+		0: [COMBOUT]	mux3to1_main:DUT|out[1]~99	LIT INDEX 0 FANOUTS 1
 		1: NONE
 
 	PARAMETER LIST:
 		sum_lutc_input                 = datac
-		lut_mask                       = 0002
+		lut_mask                       = 0aca
 
 
 - ATOM ------------------------
-	ATOM_NAME: Control:DUT|rs2_valid~2 -- NON-UNIQUE
+	ATOM_NAME: mux3to1_main:DUT|out[2]~100 -- NON-UNIQUE
 	Atom Hier Name: 
 	Atom Id: 52
 	Atom Type: cycloneii_lcell_comb
 
 	INPUTS (Driven By):
-		0: [DATAA]	  Control:DUT|is_s_instr~1	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		1: [DATAB]	  SW[2]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		2: [DATAC]	  SW[5]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		3: [DATAD]	  SW[4]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		0: [DATAA]	  SW[2]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		1: [DATAB]	  SW[10]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		2: NO ITERM
+		3: [DATAD]	  SW[17]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:CONNECTED,NONE
 		4: NO ITERM
 	OUTPUTS (Int. Connections):
-		0: [COMBOUT]	Control:DUT|rs2_valid~2	LIT INDEX 0 FANOUTS 1
+		0: [COMBOUT]	mux3to1_main:DUT|out[2]~100	LIT INDEX 0 FANOUTS 1
 		1: NONE
 
 	PARAMETER LIST:
 		sum_lutc_input                 = datac
-		lut_mask                       = 88a0
+		lut_mask                       = aacc
 
 
 - ATOM ------------------------
-	ATOM_NAME: Control:DUT|Equal5~0 -- NON-UNIQUE
+	ATOM_NAME: mux3to1_main:DUT|out[2]~101 -- NON-UNIQUE
 	Atom Hier Name: 
 	Atom Id: 53
 	Atom Type: cycloneii_lcell_comb
 
 	INPUTS (Driven By):
-		0: [DATAA]	  SW[6]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		1: NO ITERM
-		2: [DATAC]	  SW[2]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		3: [DATAD]	  SW[3]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		0: [DATAA]	  mux3to1_main:DUT|out[2]~100	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		1: [DATAB]	  SW[6]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		2: [DATAC]	  SW[16]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:CONNECTED,NONE
+		3: [DATAD]	  SW[17]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:CONNECTED,NONE
 		4: NO ITERM
 	OUTPUTS (Int. Connections):
-		0: [COMBOUT]	Control:DUT|Equal5~0	LIT INDEX 0 FANOUTS 2
+		0: [COMBOUT]	mux3to1_main:DUT|out[2]~101	LIT INDEX 0 FANOUTS 1
 		1: NONE
 
 	PARAMETER LIST:
 		sum_lutc_input                 = datac
-		lut_mask                       = 000a
+		lut_mask                       = 0aca
 
 
 - ATOM ------------------------
-	ATOM_NAME: Control:DUT|rs2_valid~3 -- NON-UNIQUE
+	ATOM_NAME: mux3to1_main:DUT|out[3]~102 -- NON-UNIQUE
 	Atom Hier Name: 
 	Atom Id: 54
 	Atom Type: cycloneii_lcell_comb
 
 	INPUTS (Driven By):
-		0: [DATAA]	  Control:DUT|rs2_valid~2	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		1: [DATAB]	  Control:DUT|Equal5~0	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		2: [DATAC]	  SW[4]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		3: [DATAD]	  SW[5]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		0: [DATAA]	  SW[3]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		1: [DATAB]	  SW[11]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		2: NO ITERM
+		3: [DATAD]	  SW[17]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:CONNECTED,NONE
 		4: NO ITERM
 	OUTPUTS (Int. Connections):
-		0: [COMBOUT]	Control:DUT|rs2_valid~3	LIT INDEX 0 FANOUTS 1
+		0: [COMBOUT]	mux3to1_main:DUT|out[3]~102	LIT INDEX 0 FANOUTS 1
 		1: NONE
 
 	PARAMETER LIST:
 		sum_lutc_input                 = datac
-		lut_mask                       = aeea
+		lut_mask                       = aacc
 
 
 - ATOM ------------------------
-	ATOM_NAME: Control:DUT|rs1_valid~1 -- NON-UNIQUE
+	ATOM_NAME: mux3to1_main:DUT|out[3]~103 -- NON-UNIQUE
 	Atom Hier Name: 
 	Atom Id: 55
 	Atom Type: cycloneii_lcell_comb
 
 	INPUTS (Driven By):
-		0: [DATAA]	  SW[5]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		1: [DATAB]	  SW[3]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		2: [DATAC]	  SW[6]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		3: [DATAD]	  SW[4]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		0: [DATAA]	  mux3to1_main:DUT|out[3]~102	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		1: [DATAB]	  SW[7]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		2: [DATAC]	  SW[16]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:CONNECTED,NONE
+		3: [DATAD]	  SW[17]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:CONNECTED,NONE
 		4: NO ITERM
 	OUTPUTS (Int. Connections):
-		0: [COMBOUT]	Control:DUT|rs1_valid~1	LIT INDEX 0 FANOUTS 1
+		0: [COMBOUT]	mux3to1_main:DUT|out[3]~103	LIT INDEX 0 FANOUTS 1
 		1: NONE
 
 	PARAMETER LIST:
 		sum_lutc_input                 = datac
-		lut_mask                       = 0380
-
-
-- ATOM ------------------------
-	ATOM_NAME: Control:DUT|rs1_valid~2 -- NON-UNIQUE
-	Atom Hier Name: 
-	Atom Id: 56
-	Atom Type: cycloneii_lcell_comb
-
-	INPUTS (Driven By):
-		0: [DATAA]	  SW[2]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		1: [DATAB]	  Control:DUT|rs1_valid~1	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		2: NO ITERM
-		3: NO ITERM
-		4: NO ITERM
-	OUTPUTS (Int. Connections):
-		0: [COMBOUT]	Control:DUT|rs1_valid~2	LIT INDEX 0 FANOUTS 1
-		1: NONE
-
-	PARAMETER LIST:
-		sum_lutc_input                 = datac
-		lut_mask                       = 8888
-
-
-- ATOM ------------------------
-	ATOM_NAME: Control:DUT|Equal5~1 -- NON-UNIQUE
-	Atom Hier Name: 
-	Atom Id: 57
-	Atom Type: cycloneii_lcell_comb
-
-	INPUTS (Driven By):
-		0: [DATAA]	  SW[5]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		1: [DATAB]	  Control:DUT|Equal5~0	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		2: NO ITERM
-		3: [DATAD]	  SW[4]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		4: NO ITERM
-	OUTPUTS (Int. Connections):
-		0: [COMBOUT]	Control:DUT|Equal5~1	LIT INDEX 0 FANOUTS 1
-		1: NONE
-
-	PARAMETER LIST:
-		sum_lutc_input                 = datac
-		lut_mask                       = 0088
-
-
-- ATOM ------------------------
-	ATOM_NAME: Control:DUT|Equal0~0 -- NON-UNIQUE
-	Atom Hier Name: 
-	Atom Id: 58
-	Atom Type: cycloneii_lcell_comb
-
-	INPUTS (Driven By):
-		0: [DATAA]	  SW[7]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		1: [DATAB]	  SW[8]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		2: [DATAC]	  SW[9]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		3: [DATAD]	  SW[10]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		4: NO ITERM
-	OUTPUTS (Int. Connections):
-		0: [COMBOUT]	Control:DUT|Equal0~0	LIT INDEX 0 FANOUTS 1
-		1: NONE
-
-	PARAMETER LIST:
-		sum_lutc_input                 = datac
-		lut_mask                       = 0001
-
-
-- ATOM ------------------------
-	ATOM_NAME: Control:DUT|rd_valid~1 -- NON-UNIQUE
-	Atom Hier Name: 
-	Atom Id: 59
-	Atom Type: cycloneii_lcell_comb
-
-	INPUTS (Driven By):
-		0: [DATAA]	  Control:DUT|is_s_instr~2	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		1: [DATAB]	  Control:DUT|Equal5~1	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		2: [DATAC]	  Control:DUT|Equal0~0	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		3: [DATAD]	  SW[11]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		4: NO ITERM
-	OUTPUTS (Int. Connections):
-		0: [COMBOUT]	Control:DUT|rd_valid~1	LIT INDEX 0 FANOUTS 1
-		1: NONE
-
-	PARAMETER LIST:
-		sum_lutc_input                 = datac
-		lut_mask                       = eefe
+		lut_mask                       = 0aca
 
 
 - ATOM ------------------------
 	ATOM_NAME: LEDR[0] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 65
+	Atom Id: 59
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -339,7 +255,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: LEDR[1] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 66
+	Atom Id: 60
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -394,7 +310,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: LEDR[2] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 67
+	Atom Id: 61
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -449,7 +365,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: LEDR[3] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 68
+	Atom Id: 62
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -504,7 +420,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: LEDR[4] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 69
+	Atom Id: 63
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -559,7 +475,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: LEDR[5] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 70
+	Atom Id: 64
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -614,7 +530,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: LEDR[6] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 71
+	Atom Id: 65
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -669,7 +585,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: LEDR[7] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 72
+	Atom Id: 66
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -724,7 +640,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: LEDR[8] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 73
+	Atom Id: 67
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -779,7 +695,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: LEDR[9] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 74
+	Atom Id: 68
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -834,7 +750,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: LEDR[10] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 75
+	Atom Id: 69
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -889,7 +805,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: LEDR[11] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 76
+	Atom Id: 70
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -944,7 +860,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: LEDR[12] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 77
+	Atom Id: 71
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -999,7 +915,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: LEDR[13] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 78
+	Atom Id: 72
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -1054,7 +970,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: LEDR[14] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 79
+	Atom Id: 73
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -1109,7 +1025,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: LEDR[15] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 80
+	Atom Id: 74
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -1164,7 +1080,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: LEDR[16] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 81
+	Atom Id: 75
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -1219,7 +1135,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: LEDR[17] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 82
+	Atom Id: 76
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -1274,11 +1190,11 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: LEDG[0] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 83
+	Atom Id: 77
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
-		0: [DATAIN]	  Control:DUT|Equal1~1	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		0: [DATAIN]	  mux3to1_main:DUT|out[0]~97	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
 		1: NO ITERM
 		2: NO ITERM
 		3: NO ITERM
@@ -1329,11 +1245,11 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: LEDG[1] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 84
+	Atom Id: 78
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
-		0: [DATAIN]	  Control:DUT|is_s_instr~2	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		0: [DATAIN]	  mux3to1_main:DUT|out[1]~99	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
 		1: NO ITERM
 		2: NO ITERM
 		3: NO ITERM
@@ -1384,11 +1300,11 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: LEDG[2] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 85
+	Atom Id: 79
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
-		0: [DATAIN]	  Control:DUT|rs2_valid~3	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		0: [DATAIN]	  mux3to1_main:DUT|out[2]~101	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
 		1: NO ITERM
 		2: NO ITERM
 		3: NO ITERM
@@ -1439,11 +1355,11 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: LEDG[3] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 86
+	Atom Id: 80
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
-		0: [DATAIN]	  !(Control:DUT|rs1_valid~2)	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		0: [DATAIN]	  mux3to1_main:DUT|out[3]~103	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
 		1: NO ITERM
 		2: NO ITERM
 		3: NO ITERM
@@ -1494,11 +1410,11 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: LEDG[4] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 87
+	Atom Id: 81
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
-		0: [DATAIN]	  !(Control:DUT|rd_valid~1)	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		0: [DATAIN]	  GND	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
 		1: NO ITERM
 		2: NO ITERM
 		3: NO ITERM
@@ -1549,7 +1465,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: LEDG[5] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 88
+	Atom Id: 82
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -1604,7 +1520,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: LEDG[6] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 89
+	Atom Id: 83
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -1659,7 +1575,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: LEDG[7] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 90
+	Atom Id: 84
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -1714,7 +1630,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: KEY[0] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 91
+	Atom Id: 85
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -1769,7 +1685,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: KEY[1] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 92
+	Atom Id: 86
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -1824,7 +1740,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: KEY[2] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 93
+	Atom Id: 87
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -1879,7 +1795,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: KEY[3] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 94
+	Atom Id: 88
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -1934,7 +1850,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: SW[0] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 95
+	Atom Id: 89
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -1989,7 +1905,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: SW[1] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 96
+	Atom Id: 90
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -2044,7 +1960,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: SW[2] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 97
+	Atom Id: 91
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -2060,7 +1976,7 @@ Chip Device Options:
 		9: NO ITERM
 		10: [PADIO]	DISCONNECTED
 	OUTPUTS (Int. Connections):
-		0: [COMBOUT]	SW[2]	LIT INDEX 0 FANOUTS 5
+		0: [COMBOUT]	SW[2]	LIT INDEX 0 FANOUTS 2
 		1: NONE
 		2: NONE
 		3: NONE
@@ -2099,7 +2015,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: SW[3] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 98
+	Atom Id: 92
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -2115,7 +2031,7 @@ Chip Device Options:
 		9: NO ITERM
 		10: [PADIO]	DISCONNECTED
 	OUTPUTS (Int. Connections):
-		0: [COMBOUT]	SW[3]	LIT INDEX 0 FANOUTS 5
+		0: [COMBOUT]	SW[3]	LIT INDEX 0 FANOUTS 2
 		1: NONE
 		2: NONE
 		3: NONE
@@ -2154,7 +2070,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: SW[4] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 99
+	Atom Id: 93
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -2170,7 +2086,7 @@ Chip Device Options:
 		9: NO ITERM
 		10: [PADIO]	DISCONNECTED
 	OUTPUTS (Int. Connections):
-		0: [COMBOUT]	SW[4]	LIT INDEX 0 FANOUTS 7
+		0: [COMBOUT]	SW[4]	LIT INDEX 0 FANOUTS 2
 		1: NONE
 		2: NONE
 		3: NONE
@@ -2209,7 +2125,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: SW[5] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 100
+	Atom Id: 94
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -2225,7 +2141,7 @@ Chip Device Options:
 		9: NO ITERM
 		10: [PADIO]	DISCONNECTED
 	OUTPUTS (Int. Connections):
-		0: [COMBOUT]	SW[5]	LIT INDEX 0 FANOUTS 6
+		0: [COMBOUT]	SW[5]	LIT INDEX 0 FANOUTS 2
 		1: NONE
 		2: NONE
 		3: NONE
@@ -2264,7 +2180,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: SW[6] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 101
+	Atom Id: 95
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -2280,7 +2196,7 @@ Chip Device Options:
 		9: NO ITERM
 		10: [PADIO]	DISCONNECTED
 	OUTPUTS (Int. Connections):
-		0: [COMBOUT]	SW[6]	LIT INDEX 0 FANOUTS 5
+		0: [COMBOUT]	SW[6]	LIT INDEX 0 FANOUTS 2
 		1: NONE
 		2: NONE
 		3: NONE
@@ -2319,7 +2235,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: SW[7] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 102
+	Atom Id: 96
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -2374,7 +2290,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: SW[8] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 103
+	Atom Id: 97
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -2429,7 +2345,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: SW[9] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 104
+	Atom Id: 98
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -2484,7 +2400,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: SW[10] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 105
+	Atom Id: 99
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -2539,7 +2455,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: SW[11] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 106
+	Atom Id: 100
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -2594,7 +2510,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: SW[12] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 107
+	Atom Id: 101
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -2649,7 +2565,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: SW[13] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 108
+	Atom Id: 102
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -2704,7 +2620,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: SW[14] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 109
+	Atom Id: 103
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -2759,7 +2675,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: SW[15] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 110
+	Atom Id: 104
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -2814,7 +2730,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: SW[16] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 111
+	Atom Id: 105
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -2830,7 +2746,7 @@ Chip Device Options:
 		9: NO ITERM
 		10: [PADIO]	DISCONNECTED
 	OUTPUTS (Int. Connections):
-		0: [COMBOUT]	SW[16]	LIT INDEX 0 FANOUTS 1
+		0: [COMBOUT]	SW[16]	LIT INDEX 0 FANOUTS 5
 		1: NONE
 		2: NONE
 		3: NONE
@@ -2869,7 +2785,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: SW[17] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 112
+	Atom Id: 106
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -2885,7 +2801,7 @@ Chip Device Options:
 		9: NO ITERM
 		10: [PADIO]	DISCONNECTED
 	OUTPUTS (Int. Connections):
-		0: [COMBOUT]	SW[17]	LIT INDEX 0 FANOUTS 1
+		0: [COMBOUT]	SW[17]	LIT INDEX 0 FANOUTS 9
 		1: NONE
 		2: NONE
 		3: NONE
@@ -2924,7 +2840,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: ~QUARTUS_CREATED_GND~I -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 113
+	Atom Id: 107
 	Atom Type: cycloneii_lcell_comb
 
 	INPUTS (Driven By):
@@ -2944,7 +2860,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: ~ASDO~ -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 114
+	Atom Id: 108
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -2999,7 +2915,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: ~nCSO~ -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 115
+	Atom Id: 109
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):
@@ -3054,7 +2970,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: ~LVDS150p/nCEO~ -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 116
+	Atom Id: 110
 	Atom Type: cycloneii_io
 
 	INPUTS (Driven By):

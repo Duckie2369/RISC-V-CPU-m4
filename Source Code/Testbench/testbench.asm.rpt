@@ -1,5 +1,5 @@
 Assembler report for testbench
-Sat Dec 28 23:05:36 2024
+Sun Jan 26 23:20:59 2025
 Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
 
 
@@ -38,9 +38,9 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Sat Dec 28 23:05:36 2024 ;
+; Assembler Status      ; Successful - Sun Jan 26 23:20:59 2025 ;
 ; Revision Name         ; testbench                             ;
-; Top-level Entity Name ; control                               ;
+; Top-level Entity Name ; mux3to1                               ;
 ; Family                ; Cyclone II                            ;
 ; Device                ; EP2C35F672C6                          ;
 +-----------------------+---------------------------------------+
@@ -93,7 +93,7 @@ applicable agreement for further details.
 +----------------+------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Device         ; EP2C35F672C6                                                                                                                                   ;
 ; JTAG usercode  ; 0xFFFFFFFF                                                                                                                                     ;
-; Checksum       ; 0x002FC51F                                                                                                                                     ;
+; Checksum       ; 0x002FAFCB                                                                                                                                     ;
 +----------------+------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -104,7 +104,7 @@ applicable agreement for further details.
 +--------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
 ; Device             ; EPCS16                                                                                                                                     ;
 ; JTAG usercode      ; 0x00000000                                                                                                                                 ;
-; Checksum           ; 0x1C7871E1                                                                                                                                 ;
+; Checksum           ; 0x1C789B59                                                                                                                                 ;
 ; Compression Ratio  ; 3                                                                                                                                          ;
 +--------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
 
@@ -115,13 +115,13 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II Assembler
     Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
-    Info: Processing started: Sat Dec 28 23:05:34 2024
+    Info: Processing started: Sun Jan 26 23:20:57 2025
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off testbench -c testbench
 Info: Writing out detailed assembly data for power analysis
 Info: Assembler is generating device programming files
 Info: Quartus II Assembler was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 278 megabytes
-    Info: Processing ended: Sat Dec 28 23:05:36 2024
+    Info: Processing ended: Sun Jan 26 23:20:59 2025
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:01
 

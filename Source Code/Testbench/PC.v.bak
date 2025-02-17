@@ -15,10 +15,10 @@ module testbench(SW,LEDR,LEDG,KEY, HEX7, HEX6, HEX5, HEX4, HEX3, HEX2, HEX1, HEX
 	hex_ssd C3(W_PC_in[7:4], HEX3);
 	
 	hex_ssd C4(SW[7:4], HEX4);
-	hex_ssd C5(W_rs1_data[7:4], HEX2);
+	hex_ssd C5(W_rs1_data[7:4], HEX5);
 	
 	hex_ssd C6(SW[11:8], HEX6);
-	hex_ssd C2(W_imm[7:4], HEX2);
+	hex_ssd C7(W_imm[7:4], HEX7);
 
 	Program_Counter DUT(.clk(SW[17]), .reset(SW[16]), .taken_br(SW[15]), .is_jal(SW[14]), .is_jalr(SW[13]), .imm(SW[11:8]), .rs1_data(SW[7:4]), .PC_in(SW[3:0]), .PC_out(W_PC_out));
 endmodule

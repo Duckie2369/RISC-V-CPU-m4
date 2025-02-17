@@ -56,15 +56,15 @@ module Program_Counter (clk, reset, taken_br, is_jal, is_jalr, imm, rs1_data, PC
 	reg [31:0] PC_out;
 	always @(posedge clk or posedge reset)
 	begin
-		if(reset == 1'b1)
-			PC_out <= 32'b0;
+      	if(reset)
+        	PC_out <= 32'b0;
 		else if(taken_br == 1'b1)
 			PC_out <= PC_in + imm;
 		else if(is_jal == 1'b1)
 			PC_out <= PC_in + imm;
-		else if(is_jalr == 1'b1)
+      else if(is_jalr == 1'b1)
 			PC_out <= rs1_data + imm;
 		else
-			PC_out <= PC_in + 32'd4;
+			PC_out <= PC_in;
 	end
 endmodule
