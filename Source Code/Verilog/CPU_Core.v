@@ -1,7 +1,33 @@
 //Test bench
+module CPU_Core(SW,LEDR,LEDG,KEY, HEX7, HEX6, HEX5, HEX4, HEX3, HEX2, HEX1, HEX0);
+	input [17:0] SW;
+    input [3:0] KEY;
+    output [0:6] HEX7, HEX6, HEX5, HEX4, HEX3, HEX2, HEX1, HEX0;
+	output [17:0] LEDR;
+	output [7:0] LEDG;
 
+	assign LEDR=SW;
+	wire [31:0] W_PC_in, W_PC_out, W_instruction, W_rs1, W_rd_data1, W_rs2, W_rd_data2, W_imm, W_rd, W_alu_out;
+	wire [31:0] W_mux_out1, W_mux_out2, W_mux_out3;
+	hex_ssd C0(W_mux_out3[3:0], HEX0);
+	hex_ssd C1(W_mux_out3[7:4], HEX1);
+	
+	hex_ssd C2(W_mux_out3[11:8], HEX2);
+	hex_ssd C3(W_mux_out3[15:12], HEX3);
+	
+	hex_ssd C4(W_mux_out2[3:0], HEX4);
+	hex_ssd C5(W_mux_out2[7:4], HEX5);
+	
+	hex_ssd C6(W_mux_out1[3:0], HEX6);
+	hex_ssd C7(W_mux_out1[7:4], HEX7);
 
-module CPU_Core(clk, reset, W_PC_in, W_PC_out, W_instruction, W_rs1, W_rd_data1, W_rs2, W_rd_data2, W_imm, W_rd, W_alu_out);
+	CPU_Core_Main DUT(.clk(SW[17]), .reset(SW[0]), .W_PC_in(W_PC_in), .W_PC_out(W_PC_out), .W_instruction(W_instruction), .W_rs1(W_rs1), .W_rd_data1(W_rd_data1), .W_rs2(W_rs2), .W_rd_data2(W_rd_data2), .W_imm(W_imm), .W_rd(W_rd), .W_alu_out(W_alu_out));
+	mux3to1 M1(.select(SW[15:14]), .in1(W_PC_in), .in2(W_rs1), .in3(W_rd_data1), .out(W_mux_out1));
+	mux3to1 M2(.select(SW[12:11]), .in1(W_imm), .in2(W_rs2), .in3(W_rd_data2), .out(W_mux_out2));
+	mux3to1 M3(.select(SW[9:8]), .in1(W_PC_out), .in2(W_rd), .in3(W_alu_out), .out(W_mux_out3));
+endmodule
+
+module CPU_Core_Main(clk, reset, W_PC_in, W_PC_out, W_instruction, W_rs1, W_rd_data1, W_rs2, W_rd_data2, W_imm, W_rd, W_alu_out);
 	input clk, reset;
   output [31:0] W_PC_in, W_rs1, W_rs2, W_rd, W_rd_data1, W_rd_data2, W_imm;
   output [31:0] W_PC_out, W_alu_out, W_instruction;
@@ -14,24 +40,69 @@ module CPU_Core(clk, reset, W_PC_in, W_PC_out, W_instruction, W_rs1, W_rd_data1,
 	
   // PC increases by 1 (4 bytes)
   Adder32Bit C3(.clk(clk), .reset(reset), .input1(W_PC_in), .input2(32'd4), .out(W_PC_out));
+	
 	// Program Counter
-	Program_Counter C1(.clk(clk), .reset(reset), .taken_br(taken_br), .is_jal(is_jal), .is_jalr(is_jalr), .imm(W_imm), .rs1_data(W_rd_data1), .PC_in(W_PC_out), .PC_out(W_PC_in));
+	Program_Counter C1(.clk(clk), .reset(reset), .taken_br(taken_br), .is_jal(is_jal), .is_jalr(is_jalr), .imm(W_imm), 
+	.rs1_data(W_rd_data1), .PC_in(W_PC_out), .PC_out(W_PC_in));
   
 	// Instruction Memory
 	Instruction_Memory C4(.read_address(W_PC_out), .read_data(W_instruction), .reset(reset));
+	
 	// Decoder
-	Decoder C5(.clk(clk), .instr(W_instruction), .rs1(W_rs1), .rs2(W_rs2), .rd(W_rd), .opcode(W_opcode), .funct3(W_funct3), .funct7(W_funct7), .imm(W_imm));
+	Decoder C5(.clk(clk), .instr(W_instruction), .rs1(W_rs1), .rs2(W_rs2), .rd(W_rd), .opcode(W_opcode), .funct3(W_funct3), 
+	.funct7(W_funct7), .imm(W_imm));
+	
 	// Control for enable
-	Control C6(.instruction(W_instruction), .rd_valid(W_rd_valid), .rs1_valid(W_rs1_valid), .rs2_valid(W_rs2_valid), .is_s_instr(W_is_s_instr), .is_load(W_is_load));
+	Control C6(.instruction(W_instruction), .rd_valid(W_rd_valid), .rs1_valid(W_rs1_valid), .rs2_valid(W_rs2_valid), 
+	.is_s_instr(W_is_s_instr), .is_load(W_is_load));
+	
 	// Register File
-	Register_File C7(.clk(clk), .wr_en(W_rd_valid), .wr_addr(W_rd), .wr_data(W_result_write_rf), .rd_en1(W_rs1_valid), .rd_addr1(W_rs1), .rd_data1(W_rd_data1), .rd_en2(W_rs2_valid), .rd_addr2(W_rs2), .rd_data2(W_rd_data2));
+	Register_File C7(.clk(clk), .wr_en(W_rd_valid), .wr_addr(W_rd), .wr_data(W_result_write_rf), .rd_en1(W_rs1_valid), 
+	.rd_addr1(W_rs1), .rd_data1(W_rd_data1), .rd_en2(W_rs2_valid), .rd_addr2(W_rs2), .rd_data2(W_rd_data2));
+	
 	// ALU
-	alu C8(.ra(W_rd_data1), .rb(W_rd_data2), .imm(W_imm), .pc(W_PC_in), .opcode(W_opcode), .funct3(W_funct3), .funct7(W_funct7), .taken_branch(taken_br), .is_jal(is_jal), .is_jalr(is_jalr), .DMem_addr(W_DMem_addr), .alu_out(W_alu_out));
+	alu C8(.ra(W_rd_data1), .rb(W_rd_data2), .imm(W_imm), .pc(W_PC_in), .opcode(W_opcode), .funct3(W_funct3), .funct7(W_funct7), 
+	.taken_branch(taken_br), .is_jal(is_jal), .is_jalr(is_jalr), .DMem_addr(W_DMem_addr), .alu_out(W_alu_out));
+	
 	// Data Memory
 	Data_Memory C9(.clk(clk), .addr(W_DMem_addr), .wr_en(W_is_s_instr), .wr_data(W_rd_data2), .rd_en(W_is_load), .rd_data(W_ld_data));
-	// Select write data for Register File
-	Mux_32_bit C10(.in0(W_alu_out), .in1(W_rd_data2), .mux_out(W_result_write_rf), .select(W_is_load));                                                                                                                              
 	
+	// Select write data for Register File
+	Mux_32_bit C10(.in0(W_alu_out), .in1(W_ld_data), .mux_out(W_result_write_rf), .select(W_is_load));                                                                                                                              
+	
+endmodule
+
+module mux3to1 (select, in1, in2, in3, out);
+	input [31:0] in1, in2, in3;
+	input [1:0] select;
+	output [31:0] out;
+	assign out = select[1] ? (select[0] ? 32'b0 : in3) : (select[0] ? in2 : in1);
+endmodule
+
+module hex_ssd (BIN, SSD);
+  input [3:0] BIN;
+  output reg [0:6] SSD;
+
+  always@(*) begin
+    case(BIN)
+      0:SSD=7'b0000001;
+      1:SSD=7'b1001111;
+      2:SSD=7'b0010010;
+      3:SSD=7'b0000110;
+      4:SSD=7'b1001100;
+      5:SSD=7'b0100100;
+      6:SSD=7'b0100000;
+      7:SSD=7'b0001111;
+      8:SSD=7'b0000000;
+      9:SSD=7'b0001100;
+      10:SSD=7'b0001000;
+      11:SSD=7'b1100000;
+      12:SSD=7'b0110001;
+      13:SSD=7'b1000010;
+      14:SSD=7'b0110000;
+      15:SSD=7'b0111000;
+    endcase
+  end
 endmodule
 
 module Program_Counter (clk, reset, taken_br, is_jal, is_jalr, imm, rs1_data, PC_in, PC_out);
@@ -59,7 +130,7 @@ module Adder32Bit(clk, reset, input1, input2, out);
 	input [31:0] input1, input2;
 	output [31:0] out;
 	reg [31:0] out;
-  always @(input1 or input2 or posedge reset or posedge clk)
+  always @(posedge reset or posedge clk)
     if(reset) begin
       out <= input1;
     end
@@ -235,16 +306,22 @@ module alu(
 			sext_ra		= {{32{ra[31]}}, ra[31:0]};
 			srai_rslt 	= sext_ra >> imm[4:0];
 			sra_rslt 	= sext_ra >> rb[4:0];
+			
+			
             case(opcode)
+				
 				OP_LUI:
 					alu_out = {imm[31:12], 12'b0};
+					
 				OP_AUIPC:
 					alu_out = pc + {imm[31:12], 12'b0};
+					
 				OP_JAL_JALR:
 					case(funct3)
 						OP_JALR:	is_jalr = 1'b1; 
 						default:	is_jal = 1'b1;
                     endcase
+						  
 				OP_BRANCH:
 					case(funct3)
 						FUNC_BEQ:  taken_branch = (ra == rb) ? 1'b1 : 1'b0;
@@ -423,10 +500,10 @@ module Control(instruction, rd_valid, rs1_valid, rs2_valid, is_s_instr, is_load)
 	wire unsigned is_u_instr, is_b_instr, is_j_instr, is_r_instr, is_i_instr, empty_rd;
  
 	assign empty_rd = (instruction[11:7] == 5'b00000) ? 1'b1 : 1'b0;
-	assign is_load = ((instruction[6:0] == 7'b0000011) || (instruction[6:0] == 7'b0100011)) ? 1'b1 : 1'b0;
+	assign is_load = (instruction[6:2] == 5'b00000) ? 1'b1 : 1'b0;
 	assign is_u_instr = ((instruction[6:2] == 5'b00101) || (instruction[6:2] == 5'b01101)) ? 1'b1 : 1'b0;
 	assign is_b_instr = (instruction[6:2] == 5'b11000) ? 1'b1 : 1'b0;
-	assign is_s_instr = ((instruction[6:2] == 5'b01000) || (instruction[6:2] == 5'b01001)) ? 1'b1 : 1'b0;
+	assign is_s_instr = (instruction[6:2] == 5'b01000) ? 1'b1 : 1'b0;
 	assign is_j_instr = (instruction[6:2] == 5'b11011) ? 1'b1 : 1'b0;
 	assign is_r_instr = ((instruction[6:2] == 5'b01000) || (instruction[6:2] == 5'b01001) || (instruction[6:2] == 5'b01010) || 
 	(instruction[6:2] == 5'b01011) || (instruction[6:2] == 5'b01100) || (instruction[6:2] == 5'b01101) || 
