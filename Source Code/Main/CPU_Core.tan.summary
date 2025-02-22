@@ -2,25 +2,85 @@
 Timing Analyzer Summary
 --------------------------------------------------------------------------------------
 
+Type           : Worst-case tsu
+Slack          : N/A
+Required Time  : None
+Actual Time    : 10.410 ns
+From           : SW[0]
+To             : CPU_Core_Main:DUT|Program_Counter:C1|PC_out[11]
+From Clock     : --
+To Clock       : SW[17]
+Failed Paths   : 0
+
 Type           : Worst-case tco
 Slack          : N/A
 Required Time  : None
-Actual Time    : 9.628 ns
-From           : Program_Counter:C1|PC_out[23]
-To             : W_PC_out[23]
-From Clock     : clk
+Actual Time    : 27.323 ns
+From           : CPU_Core_Main:DUT|Register_File:C7|rd_data1[1]
+To             : HEX3[0]
+From Clock     : SW[17]
 To Clock       : --
 Failed Paths   : 0
 
-Type           : Clock Setup: 'clk'
+Type           : Worst-case tpd
 Slack          : N/A
 Required Time  : None
-Actual Time    : 182.55 MHz ( period = 5.478 ns )
-From           : Program_Counter:C1|PC_out[2]
-To             : Program_Counter:C1|PC_out[31]
-From Clock     : clk
-To Clock       : clk
+Actual Time    : 23.501 ns
+From           : SW[0]
+To             : HEX3[0]
+From Clock     : --
+To Clock       : --
 Failed Paths   : 0
+
+Type           : Worst-case th
+Slack          : N/A
+Required Time  : None
+Actual Time    : 7.726 ns
+From           : SW[0]
+To             : CPU_Core_Main:DUT|Register_File:C7|rd_data1[7]
+From Clock     : --
+To Clock       : SW[17]
+Failed Paths   : 0
+
+Type           : Clock Setup: 'SW[17]'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 59.23 MHz ( period = 16.883 ns )
+From           : CPU_Core_Main:DUT|Register_File:C7|rd_data1[22]
+To             : CPU_Core_Main:DUT|Program_Counter:C1|PC_out[11]
+From Clock     : SW[17]
+To Clock       : SW[17]
+Failed Paths   : 0
+
+Type           : Clock Setup: 'SW[0]'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 116.93 MHz ( period = 8.552 ns )
+From           : CPU_Core_Main:DUT|Register_File:C7|rd_data2[5]
+To             : CPU_Core_Main:DUT|alu:C8|r_temp[5]
+From Clock     : SW[0]
+To Clock       : SW[0]
+Failed Paths   : 0
+
+Type           : Clock Hold: 'SW[17]'
+Slack          : Not operational: Clock Skew > Data Delay
+Required Time  : None
+Actual Time    : N/A
+From           : CPU_Core_Main:DUT|Adder32Bit:C3|out[0]~_emulated
+To             : CPU_Core_Main:DUT|Register_File:C7|rd_data1[1]
+From Clock     : SW[17]
+To Clock       : SW[17]
+Failed Paths   : 4351
+
+Type           : Clock Hold: 'SW[0]'
+Slack          : Not operational: Clock Skew > Data Delay
+Required Time  : None
+Actual Time    : N/A
+From           : CPU_Core_Main:DUT|Adder32Bit:C3|out[5]~latch
+To             : CPU_Core_Main:DUT|Register_File:C7|rd_data1[7]
+From Clock     : SW[0]
+To Clock       : SW[0]
+Failed Paths   : 392
 
 Type           : Total number of failed paths
 Slack          : 
@@ -30,7 +90,7 @@ From           :
 To             : 
 From Clock     : 
 To Clock       : 
-Failed Paths   : 0
+Failed Paths   : 4743
 
 --------------------------------------------------------------------------------------
 

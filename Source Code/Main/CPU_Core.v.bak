@@ -1,7 +1,33 @@
 //Test bench
+module CPU_Core(SW,LEDR,LEDG,KEY, HEX7, HEX6, HEX5, HEX4, HEX3, HEX2, HEX1, HEX0);
+	input [17:0] SW;
+    input [3:0] KEY;
+    output [0:6] HEX7, HEX6, HEX5, HEX4, HEX3, HEX2, HEX1, HEX0;
+	output [17:0] LEDR;
+	output [7:0] LEDG;
 
+	assign LEDR=SW;
+	wire [31:0] W_PC_in, W_PC_out, W_instruction, W_rs1, W_rd_data1, W_rs2, W_rd_data2, W_imm, W_rd, W_alu_out;
+	wire [31:0] W_mux_out1, W_mux_out2, W_mux_out3;
+	hex_ssd C0(W_mux_out3[3:0], HEX0);
+	hex_ssd C1(W_mux_out3[7:4], HEX1);
+	
+	hex_ssd C2(W_mux_out3[11:8], HEX2);
+	hex_ssd C3(W_mux_out3[15:12], HEX3);
+	
+	hex_ssd C4(W_mux_out2[3:0], HEX4);
+	hex_ssd C5(W_mux_out2[7:4], HEX5);
+	
+	hex_ssd C6(W_mux_out1[3:0], HEX6);
+	hex_ssd C7(W_mux_out1[7:4], HEX7);
 
-module CPU_Core(clk, reset, W_PC_in, W_PC_out, W_instruction, W_rs1, W_rd_data1, W_rs2, W_rd_data2, W_imm, W_rd, W_alu_out);
+	CPU_Core_Main DUT(.clk(SW[17]), .reset(SW[0]), .W_PC_in(W_PC_in), .W_PC_out(W_PC_out), .W_instruction(W_instruction), .W_rs1(W_rs1), .W_rd_data1(W_rd_data1), .W_rs2(W_rs2), .W_rd_data2(W_rd_data2), .W_imm(W_imm), .W_rd(W_rd), .W_alu_out(W_alu_out));
+	mux3to1 M1(.select(SW[15:14]), .in1(W_PC_in), .in2(W_rd_data1), .in3(W_rs1), .out(W_mux_out1));
+	mux3to1 M2(.select(SW[12:11]), .in1(W_imm), .in2(W_rd_data2), .in3(W_rs2), .out(W_mux_out2));
+	mux3to1 M3(.select(SW[9:8]), .in1(W_PC_out), .in2(W_rd), .in3(W_alu_out), .out(W_mux_out3));
+endmodule
+
+module CPU_Core_Main(clk, reset, W_PC_in, W_PC_out, W_instruction, W_rs1, W_rd_data1, W_rs2, W_rd_data2, W_imm, W_rd, W_alu_out);
 	input clk, reset;
   output [31:0] W_PC_in, W_rs1, W_rs2, W_rd, W_rd_data1, W_rd_data2, W_imm;
   output [31:0] W_PC_out, W_alu_out, W_instruction;
@@ -12,25 +38,71 @@ module CPU_Core(clk, reset, W_PC_in, W_PC_out, W_instruction, W_rs1, W_rd_data1,
 	wire  [2:0] W_funct3;
 	wire	taken_br, is_jal, is_jalr, W_rd_valid, W_rs1_valid, W_rs2_valid, W_is_s_instr, W_is_load;
 	
+  // PC increases by 1 (4 bytes)
+  Adder32Bit C3(.clk(clk), .reset(reset), .input1(W_PC_in), .input2(32'd4), .out(W_PC_out));
+	
 	// Program Counter
-	Program_Counter C1(.clk(clk), .reset(reset), .taken_br(taken_br), .is_jal(is_jal), .is_jalr(is_jalr), .imm(W_imm), .rs1_data(W_rd_data1), .PC_in(W_PC_out), .PC_out(W_PC_in));
-	// PC increases by 1
-  Adder32Bit C3(.reset(reset), .input1(W_PC_in), .input2(32'd4), .out(W_PC_out));
+	Program_Counter C1(.clk(clk), .reset(reset), .taken_br(taken_br), .is_jal(is_jal), .is_jalr(is_jalr), .imm(W_imm), 
+	.rs1_data(W_rd_data1), .PC_in(W_PC_out), .PC_out(W_PC_in));
+  
 	// Instruction Memory
 	Instruction_Memory C4(.read_address(W_PC_out), .read_data(W_instruction), .reset(reset));
+	
 	// Decoder
-	Decoder C5(.clk(clk), .instr(W_instruction), .rs1(W_rs1), .rs2(W_rs2), .rd(W_rd), .opcode(W_opcode), .funct3(W_funct3), .funct7(W_funct7), .imm(W_imm));
+	Decoder C5(.clk(clk), .instr(W_instruction), .rs1(W_rs1), .rs2(W_rs2), .rd(W_rd), .opcode(W_opcode), .funct3(W_funct3), 
+	.funct7(W_funct7), .imm(W_imm));
+	
 	// Control for enable
-	Control C6(.instruction(W_instruction), .rd_valid(W_rd_valid), .rs1_valid(W_rs1_valid), .rs2_valid(W_rs2_valid), .is_s_instr(W_is_s_instr), .is_load(W_is_load));
+	Control C6(.instruction(W_instruction), .rd_valid(W_rd_valid), .rs1_valid(W_rs1_valid), .rs2_valid(W_rs2_valid), 
+	.is_s_instr(W_is_s_instr), .is_load(W_is_load));
+	
 	// Register File
-	Register_File C7(.clk(clk), .wr_en(W_rd_valid), .wr_addr(W_rd), .wr_data(W_result_write_rf), .rd_en1(W_rs1_valid), .rd_addr1(W_rs1), .rd_data1(W_rd_data1), .rd_en2(W_rs2_valid), .rd_addr2(W_rs2), .rd_data2(W_rd_data2));
+	Register_File C7(.clk(clk), .wr_en(W_rd_valid), .wr_addr(W_rd), .wr_data(W_result_write_rf), .rd_en1(W_rs1_valid), 
+	.rd_addr1(W_rs1), .rd_data1(W_rd_data1), .rd_en2(W_rs2_valid), .rd_addr2(W_rs2), .rd_data2(W_rd_data2));
+	
 	// ALU
-	alu C8(.ra(W_rd_data1), .rb(W_rd_data2), .imm(W_imm), .pc(W_PC_in), .opcode(W_opcode), .funct3(W_funct3), .funct7(W_funct7), .taken_branch(taken_br), .is_jal(is_jal), .is_jalr(is_jalr), .DMem_addr(W_DMem_addr), .alu_out(W_alu_out));
+	alu C8(.ra(W_rd_data1), .rb(W_rd_data2), .imm(W_imm), .pc(W_PC_in), .opcode(W_opcode), .funct3(W_funct3), .funct7(W_funct7), 
+	.taken_branch(taken_br), .is_jal(is_jal), .is_jalr(is_jalr), .DMem_addr(W_DMem_addr), .alu_out(W_alu_out));
+	
 	// Data Memory
 	Data_Memory C9(.clk(clk), .addr(W_DMem_addr), .wr_en(W_is_s_instr), .wr_data(W_rd_data2), .rd_en(W_is_load), .rd_data(W_ld_data));
+	
 	// Select write data for Register File
 	Mux_32_bit C10(.in0(W_alu_out), .in1(W_rd_data2), .mux_out(W_result_write_rf), .select(W_is_load));                                                                                                                              
 	
+endmodule
+
+module mux3to1 (select, in1, in2, in3, out);
+	input [31:0] in1, in2, in3;
+	input [1:0] select;
+	output [31:0] out;
+	assign out = select[1] ? (select[0] ? 32'b0 : in3) : (select[0] ? in2 : in1);
+endmodule
+
+module hex_ssd (BIN, SSD);
+  input [3:0] BIN;
+  output reg [0:6] SSD;
+
+  always@(*) begin
+    case(BIN)
+      0:SSD=7'b0000001;
+      1:SSD=7'b1001111;
+      2:SSD=7'b0010010;
+      3:SSD=7'b0000110;
+      4:SSD=7'b1001100;
+      5:SSD=7'b0100100;
+      6:SSD=7'b0100000;
+      7:SSD=7'b0001111;
+      8:SSD=7'b0000000;
+      9:SSD=7'b0001100;
+      10:SSD=7'b0001000;
+      11:SSD=7'b1100000;
+      12:SSD=7'b0110001;
+      13:SSD=7'b1000010;
+      14:SSD=7'b0110000;
+      15:SSD=7'b0111000;
+    endcase
+  end
 endmodule
 
 module Program_Counter (clk, reset, taken_br, is_jal, is_jalr, imm, rs1_data, PC_in, PC_out);
@@ -40,25 +112,27 @@ module Program_Counter (clk, reset, taken_br, is_jal, is_jalr, imm, rs1_data, PC
 	reg [31:0] PC_out;
 	always @(posedge clk or posedge reset)
 	begin
-		if(taken_br == 1'b1)
+      	if(reset)
+        	PC_out <= 32'b0;
+		else if(taken_br == 1'b1)
 			PC_out <= PC_in + imm;
 		else if(is_jal == 1'b1)
 			PC_out <= PC_in + imm;
-		else if(is_jalr == 1'b1)
+      else if(is_jalr == 1'b1)
 			PC_out <= rs1_data + imm;
 		else
 			PC_out <= PC_in;
 	end
 endmodule
 
-module Adder32Bit(reset, input1, input2, out);
-  input reset;
+module Adder32Bit(clk, reset, input1, input2, out);
+  input clk, reset;
 	input [31:0] input1, input2;
 	output [31:0] out;
 	reg [31:0] out;
-  always @(input1 or input2 or posedge reset)
-    if(reset==1'b1) begin
-      out <= 32'b0;
+  always @(posedge reset or posedge clk)
+    if(reset) begin
+      out <= input1;
     end
      else
 		begin
@@ -91,10 +165,16 @@ module Instruction_Memory (read_address, read_data, reset);
       Imemory[8] = 32'b00000000100_000000000_01000_11011_11;
       
       //jalr $s0 14($t1)	//	$s0 = pc + 4 (12 = 8 + 4), pc = $t1 + 14 (16 = 2 + 14)
-      Imemory[12] = 32'b0000000011100011000001000_11001_11;
+      Imemory[12] = 32'b000000001110_00110_000_01000_11001_11;
+      
+      //sb $t3 0($a0)  		//	$a0[7:0] = $t3[7:0]
+      Imemory[16] = 32'b0000000_11100_01010_000_00000_01000_11;
+      
+      //lb $a1 0($a0)		//	$a1[7:0] = $a0[7:0]
+      Imemory[20] = 32'b000000000000_01010_000_01011_00000_11;
       
       //jal $s0 0	//	$s0 = pc + 4 (4 = 0 + 4), pc = zero + 0 (0 = 0 + 0)
-      Imemory[16] = 32'b00000000000000000000010001101111; 
+      Imemory[24] = 32'b00000000000000000000_01000_11011_11; 
 	end
 endmodule
 
@@ -393,7 +473,6 @@ module Data_Memory (clk, addr, wr_en, wr_data, rd_en, rd_data);
             begin
 		           DMemory[k] = 32'b0;
 			end
-		//DMemory[11] = 99;
 	end
 		
 	always @(posedge clk)

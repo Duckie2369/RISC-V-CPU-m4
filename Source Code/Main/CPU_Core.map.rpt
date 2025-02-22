@@ -1,0 +1,1186 @@
+Analysis & Synthesis report for CPU_Core
+Sun Jan 26 21:34:56 2025
+Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Analysis & Synthesis Source Files Read
+  5. Analysis & Synthesis Resource Usage Summary
+  6. Analysis & Synthesis Resource Utilization by Entity
+  7. User-Specified and Inferred Latches
+  8. Registers Removed During Synthesis
+  9. General Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Parameter Settings for User Entity Instance: CPU_Core_Main:DUT|Decoder:C5
+ 12. Parameter Settings for User Entity Instance: CPU_Core_Main:DUT|alu:C8
+ 13. Port Connectivity Checks: "mux3to1:M3"
+ 14. Port Connectivity Checks: "mux3to1:M2"
+ 15. Port Connectivity Checks: "mux3to1:M1"
+ 16. Port Connectivity Checks: "CPU_Core_Main:DUT|Data_Memory:C9"
+ 17. Port Connectivity Checks: "CPU_Core_Main:DUT|Register_File:C7"
+ 18. Port Connectivity Checks: "CPU_Core_Main:DUT|Decoder:C5"
+ 19. Port Connectivity Checks: "CPU_Core_Main:DUT|Adder32Bit:C3"
+ 20. Port Connectivity Checks: "CPU_Core_Main:DUT"
+ 21. Analysis & Synthesis Messages
+ 22. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++------------------------------------+------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sun Jan 26 21:34:56 2025    ;
+; Quartus II Version                 ; 9.0 Build 132 02/25/2009 SJ Full Version ;
+; Revision Name                      ; CPU_Core                                 ;
+; Top-level Entity Name              ; CPU_Core                                 ;
+; Family                             ; Cyclone II                               ;
+; Total logic elements               ; 1,037                                    ;
+;     Total combinational functions  ; 810                                      ;
+;     Dedicated logic registers      ; 309                                      ;
+; Total registers                    ; 309                                      ;
+; Total pins                         ; 104                                      ;
+; Total virtual pins                 ; 0                                        ;
+; Total memory bits                  ; 0                                        ;
+; Embedded Multiplier 9-bit elements ; 0                                        ;
+; Total PLLs                         ; 0                                        ;
++------------------------------------+------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                            ;
++----------------------------------------------------------------+--------------------+--------------------+
+; Option                                                         ; Setting            ; Default Value      ;
++----------------------------------------------------------------+--------------------+--------------------+
+; Device                                                         ; EP2C35F672C6       ;                    ;
+; Top-level entity name                                          ; CPU_Core           ; CPU_Core           ;
+; Family name                                                    ; Cyclone II         ; Stratix II         ;
+; Use Generated Physical Constraints File                        ; Off                ;                    ;
+; Use smart compilation                                          ; Off                ; Off                ;
+; Restructure Multiplexers                                       ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                            ; Off                ; Off                ;
+; Preserve fewer node names                                      ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                      ; Off                ; Off                ;
+; Verilog Version                                                ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                   ; VHDL93             ; VHDL93             ;
+; State Machine Processing                                       ; Auto               ; Auto               ;
+; Safe State Machine                                             ; Off                ; Off                ;
+; Extract Verilog State Machines                                 ; On                 ; On                 ;
+; Extract VHDL State Machines                                    ; On                 ; On                 ;
+; Ignore Verilog initial constructs                              ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                     ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                 ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                        ; On                 ; On                 ;
+; Parallel Synthesis                                             ; Off                ; Off                ;
+; DSP Block Balancing                                            ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                             ; On                 ; On                 ;
+; Power-Up Don't Care                                            ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                   ; Off                ; Off                ;
+; Remove Duplicate Registers                                     ; On                 ; On                 ;
+; Ignore CARRY Buffers                                           ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                         ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                          ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                      ; Off                ; Off                ;
+; Ignore LCELL Buffers                                           ; Off                ; Off                ;
+; Ignore SOFT Buffers                                            ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                 ; Off                ; Off                ;
+; Optimization Technique                                         ; Balanced           ; Balanced           ;
+; Carry Chain Length                                             ; 70                 ; 70                 ;
+; Auto Carry Chains                                              ; On                 ; On                 ;
+; Auto Open-Drain Pins                                           ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                          ; Off                ; Off                ;
+; Auto ROM Replacement                                           ; On                 ; On                 ;
+; Auto RAM Replacement                                           ; On                 ; On                 ;
+; Auto Shift Register Replacement                                ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                  ; On                 ; On                 ;
+; Strict RAM Replacement                                         ; Off                ; Off                ;
+; Allow Synchronous Control Signals                              ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                         ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                              ; Off                ; Off                ;
+; Auto Resource Sharing                                          ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                             ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                             ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                  ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing            ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives              ; Off                ; Off                ;
+; Timing-Driven Synthesis                                        ; Off                ; Off                ;
+; Show Parameter Settings Tables in Synthesis Report             ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                             ; Off                ; Off                ;
+; Synchronization Register Chain Length                          ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                   ; Normal compilation ; Normal compilation ;
+; HDL message level                                              ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report       ; 100                ; 100                ;
+; Number of Inverted Registers Reported in Synthesis Report      ; 100                ; 100                ;
+; Clock MUX Protection                                           ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                    ; Off                ; Off                ;
+; Block Design Naming                                            ; Auto               ; Auto               ;
+; SDC constraint protection                                      ; Off                ; Off                ;
+; Synthesis Effort                                               ; Auto               ; Auto               ;
+; Allows Asynchronous Clear Usage For Shift Register Replacement ; On                 ; On                 ;
+; Analysis & Synthesis Message Level                             ; Medium             ; Medium             ;
++----------------------------------------------------------------+--------------------+--------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                      ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                                                                  ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------------------------------------------------------------+
+; CPU_Core.v                       ; yes             ; User Verilog HDL File  ; C:/Users/Acer/OneDrive - VietNam National University - HCM INTERNATIONAL UNIVERSITY/Desktop/Project Prethesis/Main/CPU_Core.v ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary          ;
++---------------------------------------------+--------+
+; Resource                                    ; Usage  ;
++---------------------------------------------+--------+
+; Estimated Total logic elements              ; 1,037  ;
+;                                             ;        ;
+; Total combinational functions               ; 810    ;
+; Logic element usage by number of LUT inputs ;        ;
+;     -- 4 input functions                    ; 552    ;
+;     -- 3 input functions                    ; 150    ;
+;     -- <=2 input functions                  ; 108    ;
+;                                             ;        ;
+; Logic elements by mode                      ;        ;
+;     -- normal mode                          ; 690    ;
+;     -- arithmetic mode                      ; 120    ;
+;                                             ;        ;
+; Total registers                             ; 309    ;
+;     -- Dedicated logic registers            ; 309    ;
+;     -- I/O registers                        ; 0      ;
+;                                             ;        ;
+; I/O pins                                    ; 104    ;
+; Maximum fan-out node                        ; SW[17] ;
+; Maximum fan-out                             ; 310    ;
+; Total fan-out                               ; 3921   ;
+; Average fan-out                             ; 3.21   ;
++---------------------------------------------+--------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                          ;
++-------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------+--------------+
+; Compilation Hierarchy Node    ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                               ; Library Name ;
++-------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------+--------------+
+; |CPU_Core                     ; 810 (0)           ; 309 (0)      ; 0           ; 0            ; 0       ; 0         ; 104  ; 0            ; |CPU_Core                                         ; work         ;
+;    |CPU_Core_Main:DUT|        ; 699 (0)           ; 309 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_Core|CPU_Core_Main:DUT                       ; work         ;
+;       |Adder32Bit:C3|         ; 98 (98)           ; 25 (25)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_Core|CPU_Core_Main:DUT|Adder32Bit:C3         ; work         ;
+;       |Control:C6|            ; 6 (6)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_Core|CPU_Core_Main:DUT|Control:C6            ; work         ;
+;       |Decoder:C5|            ; 16 (16)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_Core|CPU_Core_Main:DUT|Decoder:C5            ; work         ;
+;       |Instruction_Memory:C4| ; 26 (26)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_Core|CPU_Core_Main:DUT|Instruction_Memory:C4 ; work         ;
+;       |Mux_32_bit:C10|        ; 61 (61)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_Core|CPU_Core_Main:DUT|Mux_32_bit:C10        ; work         ;
+;       |Program_Counter:C1|    ; 51 (51)           ; 25 (25)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_Core|CPU_Core_Main:DUT|Program_Counter:C1    ; work         ;
+;       |Register_File:C7|      ; 303 (303)         ; 259 (259)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_Core|CPU_Core_Main:DUT|Register_File:C7      ; work         ;
+;       |alu:C8|                ; 138 (138)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_Core|CPU_Core_Main:DUT|alu:C8                ; work         ;
+;    |hex_ssd:C0|               ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_Core|hex_ssd:C0                              ; work         ;
+;    |hex_ssd:C1|               ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_Core|hex_ssd:C1                              ; work         ;
+;    |hex_ssd:C2|               ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_Core|hex_ssd:C2                              ; work         ;
+;    |hex_ssd:C3|               ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_Core|hex_ssd:C3                              ; work         ;
+;    |hex_ssd:C4|               ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_Core|hex_ssd:C4                              ; work         ;
+;    |hex_ssd:C5|               ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_Core|hex_ssd:C5                              ; work         ;
+;    |hex_ssd:C6|               ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_Core|hex_ssd:C6                              ; work         ;
+;    |hex_ssd:C7|               ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_Core|hex_ssd:C7                              ; work         ;
+;    |mux3to1:M1|               ; 12 (12)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_Core|mux3to1:M1                              ; work         ;
+;    |mux3to1:M2|               ; 12 (12)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_Core|mux3to1:M2                              ; work         ;
+;    |mux3to1:M3|               ; 31 (31)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_Core|mux3to1:M3                              ; work         ;
++-------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                     ;
++-----------------------------------------------------+------------------------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal                      ; Free of Timing Hazards ;
++-----------------------------------------------------+------------------------------------------+------------------------+
+; CPU_Core_Main:DUT|Register_File:C7|rd_data1[4]      ; CPU_Core_Main:DUT|Control:C6|rs1_valid~0 ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data1[5]      ; CPU_Core_Main:DUT|Control:C6|rs1_valid~0 ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data1[6]      ; CPU_Core_Main:DUT|Control:C6|rs1_valid~0 ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data1[7]      ; CPU_Core_Main:DUT|Control:C6|rs1_valid~0 ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data1[0]      ; CPU_Core_Main:DUT|Control:C6|rs1_valid~0 ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data1[1]      ; CPU_Core_Main:DUT|Control:C6|rs1_valid~0 ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data1[2]      ; CPU_Core_Main:DUT|Control:C6|rs1_valid~0 ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data1[3]      ; CPU_Core_Main:DUT|Control:C6|rs1_valid~0 ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data2[4]      ; CPU_Core_Main:DUT|Control:C6|rs2_valid   ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data2[5]      ; CPU_Core_Main:DUT|Control:C6|rs2_valid   ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data2[6]      ; CPU_Core_Main:DUT|Control:C6|rs2_valid   ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data2[7]      ; CPU_Core_Main:DUT|Control:C6|rs2_valid   ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data2[0]      ; CPU_Core_Main:DUT|Control:C6|rs2_valid   ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data2[1]      ; CPU_Core_Main:DUT|Control:C6|rs2_valid   ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data2[2]      ; CPU_Core_Main:DUT|Control:C6|rs2_valid   ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data2[3]      ; CPU_Core_Main:DUT|Control:C6|rs2_valid   ; yes                    ;
+; CPU_Core_Main:DUT|alu:C8|r_temp[7]                  ; CPU_Core_Main:DUT|Decoder:C5|Decoder0    ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data2[12]     ; CPU_Core_Main:DUT|Control:C6|rs2_valid   ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data1[12]     ; CPU_Core_Main:DUT|Control:C6|rs1_valid~0 ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data2[11]     ; CPU_Core_Main:DUT|Control:C6|rs2_valid   ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data1[11]     ; CPU_Core_Main:DUT|Control:C6|rs1_valid~0 ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data2[10]     ; CPU_Core_Main:DUT|Control:C6|rs2_valid   ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data1[10]     ; CPU_Core_Main:DUT|Control:C6|rs1_valid~0 ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data2[9]      ; CPU_Core_Main:DUT|Control:C6|rs2_valid   ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data1[9]      ; CPU_Core_Main:DUT|Control:C6|rs1_valid~0 ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data2[8]      ; CPU_Core_Main:DUT|Control:C6|rs2_valid   ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data1[8]      ; CPU_Core_Main:DUT|Control:C6|rs1_valid~0 ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data2[13]     ; CPU_Core_Main:DUT|Control:C6|rs2_valid   ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data1[13]     ; CPU_Core_Main:DUT|Control:C6|rs1_valid~0 ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data2[14]     ; CPU_Core_Main:DUT|Control:C6|rs2_valid   ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data1[14]     ; CPU_Core_Main:DUT|Control:C6|rs1_valid~0 ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data1[15]     ; CPU_Core_Main:DUT|Control:C6|rs1_valid~0 ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data2[15]     ; CPU_Core_Main:DUT|Control:C6|rs2_valid   ; yes                    ;
+; CPU_Core_Main:DUT|alu:C8|r_temp[4]                  ; CPU_Core_Main:DUT|Decoder:C5|Decoder0    ; yes                    ;
+; CPU_Core_Main:DUT|alu:C8|r_temp[5]                  ; CPU_Core_Main:DUT|Decoder:C5|Decoder0    ; yes                    ;
+; CPU_Core_Main:DUT|alu:C8|r_temp[6]                  ; CPU_Core_Main:DUT|Decoder:C5|Decoder0    ; yes                    ;
+; CPU_Core_Main:DUT|alu:C8|r_temp[0]                  ; CPU_Core_Main:DUT|Decoder:C5|Decoder0    ; yes                    ;
+; CPU_Core_Main:DUT|alu:C8|r_temp[1]                  ; CPU_Core_Main:DUT|Decoder:C5|Decoder0    ; yes                    ;
+; CPU_Core_Main:DUT|alu:C8|r_temp[2]                  ; CPU_Core_Main:DUT|Decoder:C5|Decoder0    ; yes                    ;
+; CPU_Core_Main:DUT|alu:C8|r_temp[3]                  ; CPU_Core_Main:DUT|Decoder:C5|Decoder0    ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data1[16]     ; CPU_Core_Main:DUT|Control:C6|rs1_valid~0 ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data2[16]     ; CPU_Core_Main:DUT|Control:C6|rs2_valid   ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data1[17]     ; CPU_Core_Main:DUT|Control:C6|rs1_valid~0 ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data2[17]     ; CPU_Core_Main:DUT|Control:C6|rs2_valid   ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data1[18]     ; CPU_Core_Main:DUT|Control:C6|rs1_valid~0 ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data2[18]     ; CPU_Core_Main:DUT|Control:C6|rs2_valid   ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data1[19]     ; CPU_Core_Main:DUT|Control:C6|rs1_valid~0 ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data2[19]     ; CPU_Core_Main:DUT|Control:C6|rs2_valid   ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data1[20]     ; CPU_Core_Main:DUT|Control:C6|rs1_valid~0 ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data2[20]     ; CPU_Core_Main:DUT|Control:C6|rs2_valid   ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data1[21]     ; CPU_Core_Main:DUT|Control:C6|rs1_valid~0 ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data2[21]     ; CPU_Core_Main:DUT|Control:C6|rs2_valid   ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data1[22]     ; CPU_Core_Main:DUT|Control:C6|rs1_valid~0 ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data2[22]     ; CPU_Core_Main:DUT|Control:C6|rs2_valid   ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data1[23]     ; CPU_Core_Main:DUT|Control:C6|rs1_valid~0 ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data2[23]     ; CPU_Core_Main:DUT|Control:C6|rs2_valid   ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data1[24]     ; CPU_Core_Main:DUT|Control:C6|rs1_valid~0 ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data2[24]     ; CPU_Core_Main:DUT|Control:C6|rs2_valid   ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data1[25]     ; CPU_Core_Main:DUT|Control:C6|rs1_valid~0 ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data2[25]     ; CPU_Core_Main:DUT|Control:C6|rs2_valid   ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data1[26]     ; CPU_Core_Main:DUT|Control:C6|rs1_valid~0 ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data2[26]     ; CPU_Core_Main:DUT|Control:C6|rs2_valid   ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data1[27]     ; CPU_Core_Main:DUT|Control:C6|rs1_valid~0 ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data2[27]     ; CPU_Core_Main:DUT|Control:C6|rs2_valid   ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data1[28]     ; CPU_Core_Main:DUT|Control:C6|rs1_valid~0 ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data2[28]     ; CPU_Core_Main:DUT|Control:C6|rs2_valid   ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data1[29]     ; CPU_Core_Main:DUT|Control:C6|rs1_valid~0 ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data2[29]     ; CPU_Core_Main:DUT|Control:C6|rs2_valid   ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data1[30]     ; CPU_Core_Main:DUT|Control:C6|rs1_valid~0 ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data2[30]     ; CPU_Core_Main:DUT|Control:C6|rs2_valid   ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data1[31]     ; CPU_Core_Main:DUT|Control:C6|rs1_valid~0 ; yes                    ;
+; CPU_Core_Main:DUT|Register_File:C7|rd_data2[31]     ; CPU_Core_Main:DUT|Control:C6|rs2_valid   ; yes                    ;
+; Number of user-specified and inferred latches = 72  ;                                          ;                        ;
++-----------------------------------------------------+------------------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++-------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                              ;
++--------------------------------------------------------+----------------------------------------+
+; Register name                                          ; Reason for Removal                     ;
++--------------------------------------------------------+----------------------------------------+
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[1][31] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[1][30] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[1][29] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[1][28] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[1][27] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[1][26] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[1][25] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[1][24] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[1][23] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[1][22] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[1][21] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[1][20] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[1][19] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[1][18] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[1][17] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[1][16] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[1][15] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[1][14] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[1][13] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[1][12] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[1][11] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[1][10] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[1][9]  ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[1][8]  ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[1][7]  ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[1][6]  ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[1][5]  ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[1][4]  ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[1][3]  ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[1][2]  ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[1][1]  ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[1][0]  ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[0][31] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[0][30] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[0][29] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[0][28] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[0][27] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[0][26] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[0][25] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[0][24] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[0][23] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[0][22] ; Stuck at VCC due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[0][21] ; Stuck at VCC due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[0][20] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[0][19] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[0][18] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[0][17] ; Stuck at VCC due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[0][16] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[0][15] ; Stuck at VCC due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[0][14] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[0][13] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[0][12] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[0][11] ; Stuck at VCC due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[0][10] ; Stuck at VCC due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[0][9]  ; Stuck at VCC due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[0][8]  ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[0][7]  ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[0][6]  ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[0][5]  ; Stuck at VCC due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[0][4]  ; Stuck at VCC due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[0][3]  ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[0][2]  ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[0][1]  ; Stuck at VCC due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[0][0]  ; Stuck at VCC due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[2][0]  ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[2][1]  ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[2][2]  ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[2][3]  ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[2][4]  ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[2][5]  ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[2][6]  ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[2][7]  ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[2][8]  ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[2][9]  ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[2][10] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[2][11] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[2][12] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[2][13] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[2][14] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[2][15] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[2][16] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[2][17] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[2][18] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[2][19] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[2][20] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[2][21] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[2][22] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[2][23] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[2][24] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[2][25] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[2][26] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[2][27] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[2][28] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[2][29] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[2][30] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[2][31] ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[3][0]  ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[3][1]  ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[3][2]  ; Stuck at GND due to stuck port data_in ;
+; CPU_Core_Main:DUT|Instruction_Memory:C4|Imemory[3][3]  ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 2827               ;                                        ;
++--------------------------------------------------------+----------------------------------------+
+* Table truncated at 100 items. To change the number of removed registers reported, set the "Number of Removed Registers Reported" option under Assignments->Settings->Analysis and Synthesis Settings->More Settings
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 309   ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 25    ;
+; Number of registers using Asynchronous Clear ; 50    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 259   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------+
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |CPU_Core|CPU_Core_Main:DUT|Program_Counter:C1|PC_out[11] ;
+; 4:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; No         ; |CPU_Core|mux3to1:M3|out[13]                              ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |CPU_Core|mux3to1:M3|out[4]                               ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |CPU_Core|mux3to1:M2|out[4]                               ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |CPU_Core|mux3to1:M1|out[4]                               ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |CPU_Core|mux3to1:M1|out[1]                               ;
+; 32:1               ; 7 bits    ; 147 LEs       ; 28 LEs               ; 119 LEs                ; No         ; |CPU_Core|CPU_Core_Main:DUT|alu:C8|Selector25             ;
+; 32:1               ; 2 bits    ; 42 LEs        ; 2 LEs                ; 40 LEs                 ; No         ; |CPU_Core|CPU_Core_Main:DUT|Decoder:C5|Selector10         ;
+; 32:1               ; 2 bits    ; 42 LEs        ; 4 LEs                ; 38 LEs                 ; No         ; |CPU_Core|CPU_Core_Main:DUT|Decoder:C5|Selector13         ;
+; 8:1                ; 7 bits    ; 35 LEs        ; 21 LEs               ; 14 LEs                 ; No         ; |CPU_Core|CPU_Core_Main:DUT|alu:C8|Selector21             ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; No         ; |CPU_Core|CPU_Core_Main:DUT|alu:C8|Selector19             ;
+; 9:1                ; 8 bits    ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; No         ; |CPU_Core|CPU_Core_Main:DUT|Mux_32_bit:C10|mux_out[31]    ;
+; 9:1                ; 8 bits    ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; No         ; |CPU_Core|CPU_Core_Main:DUT|Mux_32_bit:C10|mux_out[19]    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------+
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU_Core_Main:DUT|Decoder:C5 ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; OP_LUI         ; 01101 ; Unsigned Binary                                  ;
+; OP_AUIPC       ; 00101 ; Unsigned Binary                                  ;
+; OP_JAL         ; 11011 ; Unsigned Binary                                  ;
+; OP_JALR        ; 11001 ; Unsigned Binary                                  ;
+; OP_BRANCH      ; 11000 ; Unsigned Binary                                  ;
+; OP_STORE       ; 01000 ; Unsigned Binary                                  ;
+; OP_LOAD        ; 00000 ; Unsigned Binary                                  ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU_Core_Main:DUT|alu:C8 ;
++----------------+-------+----------------------------------------------+
+; Parameter Name ; Value ; Type                                         ;
++----------------+-------+----------------------------------------------+
+; OP_LUI         ; 01101 ; Unsigned Binary                              ;
+; OP_AUIPC       ; 00101 ; Unsigned Binary                              ;
+; OP_JAL_JALR    ; 11011 ; Unsigned Binary                              ;
+; OP_JALR        ; 000   ; Unsigned Binary                              ;
+; OP_BRANCH      ; 11000 ; Unsigned Binary                              ;
+; OP_LOAD        ; 00000 ; Unsigned Binary                              ;
+; OP_STORE       ; 01000 ; Unsigned Binary                              ;
+; OP_OPIMM       ; 00100 ; Unsigned Binary                              ;
+; OP_OP          ; 01100 ; Unsigned Binary                              ;
+; FUNC_BEQ       ; 000   ; Unsigned Binary                              ;
+; FUNC_BNE       ; 001   ; Unsigned Binary                              ;
+; FUNC_BLT       ; 100   ; Unsigned Binary                              ;
+; FUNC_BGE       ; 101   ; Unsigned Binary                              ;
+; FUNC_BLTU      ; 110   ; Unsigned Binary                              ;
+; FUNC_BGEU      ; 111   ; Unsigned Binary                              ;
+; FUNC_LB        ; 000   ; Unsigned Binary                              ;
+; FUNC_LH        ; 001   ; Unsigned Binary                              ;
+; FUNC_LW        ; 010   ; Unsigned Binary                              ;
+; FUNC_LBU       ; 100   ; Unsigned Binary                              ;
+; FUNC_LHU       ; 101   ; Unsigned Binary                              ;
+; FUNC_SB        ; 000   ; Unsigned Binary                              ;
+; FUNC_SH        ; 001   ; Unsigned Binary                              ;
+; FUNC_SW        ; 010   ; Unsigned Binary                              ;
+; FUNC_ADDI      ; 000   ; Unsigned Binary                              ;
+; FUNC_SLTI      ; 010   ; Unsigned Binary                              ;
+; FUNC_SLTIU     ; 011   ; Unsigned Binary                              ;
+; FUNC_XORI      ; 100   ; Unsigned Binary                              ;
+; FUNC_ORI       ; 110   ; Unsigned Binary                              ;
+; FUNC_ANDI      ; 111   ; Unsigned Binary                              ;
+; FUNC_SLLI      ; 001   ; Unsigned Binary                              ;
+; FUNC_SRLI_SRAI ; 101   ; Unsigned Binary                              ;
+; FUNC_SRLI      ; 0     ; Unsigned Binary                              ;
+; FUNC_SRAI      ; 1     ; Unsigned Binary                              ;
+; ALU_OP_ADD_SUB ; 000   ; Unsigned Binary                              ;
+; ALU_OP_ADD     ; 0     ; Unsigned Binary                              ;
+; ALU_OP_SUB     ; 1     ; Unsigned Binary                              ;
+; ALU_OP_SLL     ; 001   ; Unsigned Binary                              ;
+; ALU_OP_SLT     ; 010   ; Unsigned Binary                              ;
+; ALU_OP_SLTU    ; 011   ; Unsigned Binary                              ;
+; ALU_OP_XOR     ; 100   ; Unsigned Binary                              ;
+; ALU_OP_SRL_SRA ; 101   ; Unsigned Binary                              ;
+; ALU_OP_SRL     ; 0     ; Unsigned Binary                              ;
+; ALU_OP_SRA     ; 1     ; Unsigned Binary                              ;
+; ALU_OP_OR      ; 110   ; Unsigned Binary                              ;
+; ALU_OP_AND     ; 111   ; Unsigned Binary                              ;
++----------------+-------+----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "mux3to1:M3"                                                                                ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; out[31..16] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "mux3to1:M2"                                                                               ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                             ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; out[31..8] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "mux3to1:M1"                                                                               ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                             ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; out[31..8] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CPU_Core_Main:DUT|Data_Memory:C9"                                                      ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; rd_data ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CPU_Core_Main:DUT|Register_File:C7"                                                                                                                                                   ;
++----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port     ; Type  ; Severity ; Details                                                                                                                                                                            ;
++----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; wr_addr  ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (5 bits) it drives.  The 27 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; rd_addr1 ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (5 bits) it drives.  The 27 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; rd_addr2 ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (5 bits) it drives.  The 27 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CPU_Core_Main:DUT|Decoder:C5"                                                                                                                                           ;
++------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                                                                 ;
++------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; rs1  ; Output ; Warning  ; Output or bidir port (5 bits) is smaller than the port expression (32 bits) it drives.  The 27 most-significant bit(s) in the port expression will be connected to GND. ;
+; rs2  ; Output ; Warning  ; Output or bidir port (5 bits) is smaller than the port expression (32 bits) it drives.  The 27 most-significant bit(s) in the port expression will be connected to GND. ;
+; rd   ; Output ; Warning  ; Output or bidir port (5 bits) is smaller than the port expression (32 bits) it drives.  The 27 most-significant bit(s) in the port expression will be connected to GND. ;
++------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------+
+; Port Connectivity Checks: "CPU_Core_Main:DUT|Adder32Bit:C3" ;
++---------------+-------+----------+--------------------------+
+; Port          ; Type  ; Severity ; Details                  ;
++---------------+-------+----------+--------------------------+
+; input2[31..3] ; Input ; Info     ; Stuck at GND             ;
+; input2[1..0]  ; Input ; Info     ; Stuck at GND             ;
+; input2[2]     ; Input ; Info     ; Stuck at VCC             ;
++---------------+-------+----------+--------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CPU_Core_Main:DUT"                                                                           ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; W_instruction ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
+    Info: Processing started: Sun Jan 26 21:34:52 2025
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off CPU_Core -c CPU_Core
+Info: Found 13 design units, including 13 entities, in source file CPU_Core.v
+    Info: Found entity 1: CPU_Core
+    Info: Found entity 2: CPU_Core_Main
+    Info: Found entity 3: mux3to1
+    Info: Found entity 4: hex_ssd
+    Info: Found entity 5: Program_Counter
+    Info: Found entity 6: Adder32Bit
+    Info: Found entity 7: Instruction_Memory
+    Info: Found entity 8: Decoder
+    Info: Found entity 9: alu
+    Info: Found entity 10: Register_File
+    Info: Found entity 11: Mux_32_bit
+    Info: Found entity 12: Data_Memory
+    Info: Found entity 13: Control
+Info: Elaborating entity "CPU_Core" for the top level hierarchy
+Warning (10034): Output port "LEDG[7]" at CPU_Core.v(7) has no driver
+Warning (10034): Output port "LEDG[6]" at CPU_Core.v(7) has no driver
+Warning (10034): Output port "LEDG[5]" at CPU_Core.v(7) has no driver
+Warning (10034): Output port "LEDG[4]" at CPU_Core.v(7) has no driver
+Warning (10034): Output port "LEDG[3]" at CPU_Core.v(7) has no driver
+Warning (10034): Output port "LEDG[2]" at CPU_Core.v(7) has no driver
+Warning (10034): Output port "LEDG[1]" at CPU_Core.v(7) has no driver
+Warning (10034): Output port "LEDG[0]" at CPU_Core.v(7) has no driver
+Info: Elaborating entity "hex_ssd" for hierarchy "hex_ssd:C0"
+Info: Elaborating entity "CPU_Core_Main" for hierarchy "CPU_Core_Main:DUT"
+Info: Elaborating entity "Adder32Bit" for hierarchy "CPU_Core_Main:DUT|Adder32Bit:C3"
+Info: Elaborating entity "Program_Counter" for hierarchy "CPU_Core_Main:DUT|Program_Counter:C1"
+Info: Elaborating entity "Instruction_Memory" for hierarchy "CPU_Core_Main:DUT|Instruction_Memory:C4"
+Info: Elaborating entity "Decoder" for hierarchy "CPU_Core_Main:DUT|Decoder:C5"
+Info: Elaborating entity "Control" for hierarchy "CPU_Core_Main:DUT|Control:C6"
+Warning (10036): Verilog HDL or VHDL warning at CPU_Core.v(494): object "is_i_instr" assigned a value but never read
+Info: Elaborating entity "Register_File" for hierarchy "CPU_Core_Main:DUT|Register_File:C7"
+Warning (10235): Verilog HDL Always Construct warning at CPU_Core.v(414): variable "rd_addr1" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at CPU_Core.v(418): variable "rd_en1" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at CPU_Core.v(419): variable "rd_addr1" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10240): Verilog HDL Always Construct warning at CPU_Core.v(412): inferring latch(es) for variable "rd_data1", which holds its previous value in one or more paths through the always construct
+Warning (10235): Verilog HDL Always Construct warning at CPU_Core.v(427): variable "rd_addr2" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at CPU_Core.v(431): variable "rd_en2" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at CPU_Core.v(432): variable "rd_addr2" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10240): Verilog HDL Always Construct warning at CPU_Core.v(425): inferring latch(es) for variable "rd_data2", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "rd_data2[0]" at CPU_Core.v(431)
+Info (10041): Inferred latch for "rd_data2[1]" at CPU_Core.v(431)
+Info (10041): Inferred latch for "rd_data2[2]" at CPU_Core.v(431)
+Info (10041): Inferred latch for "rd_data2[3]" at CPU_Core.v(431)
+Info (10041): Inferred latch for "rd_data2[4]" at CPU_Core.v(431)
+Info (10041): Inferred latch for "rd_data2[5]" at CPU_Core.v(431)
+Info (10041): Inferred latch for "rd_data2[6]" at CPU_Core.v(431)
+Info (10041): Inferred latch for "rd_data2[7]" at CPU_Core.v(431)
+Info (10041): Inferred latch for "rd_data2[8]" at CPU_Core.v(431)
+Info (10041): Inferred latch for "rd_data2[9]" at CPU_Core.v(431)
+Info (10041): Inferred latch for "rd_data2[10]" at CPU_Core.v(431)
+Info (10041): Inferred latch for "rd_data2[11]" at CPU_Core.v(431)
+Info (10041): Inferred latch for "rd_data2[12]" at CPU_Core.v(431)
+Info (10041): Inferred latch for "rd_data2[13]" at CPU_Core.v(431)
+Info (10041): Inferred latch for "rd_data2[14]" at CPU_Core.v(431)
+Info (10041): Inferred latch for "rd_data2[15]" at CPU_Core.v(431)
+Info (10041): Inferred latch for "rd_data2[16]" at CPU_Core.v(431)
+Info (10041): Inferred latch for "rd_data2[17]" at CPU_Core.v(431)
+Info (10041): Inferred latch for "rd_data2[18]" at CPU_Core.v(431)
+Info (10041): Inferred latch for "rd_data2[19]" at CPU_Core.v(431)
+Info (10041): Inferred latch for "rd_data2[20]" at CPU_Core.v(431)
+Info (10041): Inferred latch for "rd_data2[21]" at CPU_Core.v(431)
+Info (10041): Inferred latch for "rd_data2[22]" at CPU_Core.v(431)
+Info (10041): Inferred latch for "rd_data2[23]" at CPU_Core.v(431)
+Info (10041): Inferred latch for "rd_data2[24]" at CPU_Core.v(431)
+Info (10041): Inferred latch for "rd_data2[25]" at CPU_Core.v(431)
+Info (10041): Inferred latch for "rd_data2[26]" at CPU_Core.v(431)
+Info (10041): Inferred latch for "rd_data2[27]" at CPU_Core.v(431)
+Info (10041): Inferred latch for "rd_data2[28]" at CPU_Core.v(431)
+Info (10041): Inferred latch for "rd_data2[29]" at CPU_Core.v(431)
+Info (10041): Inferred latch for "rd_data2[30]" at CPU_Core.v(431)
+Info (10041): Inferred latch for "rd_data2[31]" at CPU_Core.v(431)
+Info (10041): Inferred latch for "rd_data1[0]" at CPU_Core.v(418)
+Info (10041): Inferred latch for "rd_data1[1]" at CPU_Core.v(418)
+Info (10041): Inferred latch for "rd_data1[2]" at CPU_Core.v(418)
+Info (10041): Inferred latch for "rd_data1[3]" at CPU_Core.v(418)
+Info (10041): Inferred latch for "rd_data1[4]" at CPU_Core.v(418)
+Info (10041): Inferred latch for "rd_data1[5]" at CPU_Core.v(418)
+Info (10041): Inferred latch for "rd_data1[6]" at CPU_Core.v(418)
+Info (10041): Inferred latch for "rd_data1[7]" at CPU_Core.v(418)
+Info (10041): Inferred latch for "rd_data1[8]" at CPU_Core.v(418)
+Info (10041): Inferred latch for "rd_data1[9]" at CPU_Core.v(418)
+Info (10041): Inferred latch for "rd_data1[10]" at CPU_Core.v(418)
+Info (10041): Inferred latch for "rd_data1[11]" at CPU_Core.v(418)
+Info (10041): Inferred latch for "rd_data1[12]" at CPU_Core.v(418)
+Info (10041): Inferred latch for "rd_data1[13]" at CPU_Core.v(418)
+Info (10041): Inferred latch for "rd_data1[14]" at CPU_Core.v(418)
+Info (10041): Inferred latch for "rd_data1[15]" at CPU_Core.v(418)
+Info (10041): Inferred latch for "rd_data1[16]" at CPU_Core.v(418)
+Info (10041): Inferred latch for "rd_data1[17]" at CPU_Core.v(418)
+Info (10041): Inferred latch for "rd_data1[18]" at CPU_Core.v(418)
+Info (10041): Inferred latch for "rd_data1[19]" at CPU_Core.v(418)
+Info (10041): Inferred latch for "rd_data1[20]" at CPU_Core.v(418)
+Info (10041): Inferred latch for "rd_data1[21]" at CPU_Core.v(418)
+Info (10041): Inferred latch for "rd_data1[22]" at CPU_Core.v(418)
+Info (10041): Inferred latch for "rd_data1[23]" at CPU_Core.v(418)
+Info (10041): Inferred latch for "rd_data1[24]" at CPU_Core.v(418)
+Info (10041): Inferred latch for "rd_data1[25]" at CPU_Core.v(418)
+Info (10041): Inferred latch for "rd_data1[26]" at CPU_Core.v(418)
+Info (10041): Inferred latch for "rd_data1[27]" at CPU_Core.v(418)
+Info (10041): Inferred latch for "rd_data1[28]" at CPU_Core.v(418)
+Info (10041): Inferred latch for "rd_data1[29]" at CPU_Core.v(418)
+Info (10041): Inferred latch for "rd_data1[30]" at CPU_Core.v(418)
+Info (10041): Inferred latch for "rd_data1[31]" at CPU_Core.v(418)
+Info: Elaborating entity "alu" for hierarchy "CPU_Core_Main:DUT|alu:C8"
+Warning (10270): Verilog HDL Case Statement warning at CPU_Core.v(341): incomplete case statement has no default case item
+Warning (10270): Verilog HDL Case Statement warning at CPU_Core.v(309): incomplete case statement has no default case item
+Warning (10240): Verilog HDL Always Construct warning at CPU_Core.v(299): inferring latch(es) for variable "r_temp", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "r_temp[0]" at CPU_Core.v(299)
+Info (10041): Inferred latch for "r_temp[1]" at CPU_Core.v(299)
+Info (10041): Inferred latch for "r_temp[2]" at CPU_Core.v(299)
+Info (10041): Inferred latch for "r_temp[3]" at CPU_Core.v(299)
+Info (10041): Inferred latch for "r_temp[4]" at CPU_Core.v(299)
+Info (10041): Inferred latch for "r_temp[5]" at CPU_Core.v(299)
+Info (10041): Inferred latch for "r_temp[6]" at CPU_Core.v(299)
+Info (10041): Inferred latch for "r_temp[7]" at CPU_Core.v(299)
+Info (10041): Inferred latch for "r_temp[8]" at CPU_Core.v(299)
+Info (10041): Inferred latch for "r_temp[9]" at CPU_Core.v(299)
+Info (10041): Inferred latch for "r_temp[10]" at CPU_Core.v(299)
+Info (10041): Inferred latch for "r_temp[11]" at CPU_Core.v(299)
+Info (10041): Inferred latch for "r_temp[12]" at CPU_Core.v(299)
+Info (10041): Inferred latch for "r_temp[13]" at CPU_Core.v(299)
+Info (10041): Inferred latch for "r_temp[14]" at CPU_Core.v(299)
+Info (10041): Inferred latch for "r_temp[15]" at CPU_Core.v(299)
+Info (10041): Inferred latch for "r_temp[16]" at CPU_Core.v(299)
+Info (10041): Inferred latch for "r_temp[17]" at CPU_Core.v(299)
+Info (10041): Inferred latch for "r_temp[18]" at CPU_Core.v(299)
+Info (10041): Inferred latch for "r_temp[19]" at CPU_Core.v(299)
+Info (10041): Inferred latch for "r_temp[20]" at CPU_Core.v(299)
+Info (10041): Inferred latch for "r_temp[21]" at CPU_Core.v(299)
+Info (10041): Inferred latch for "r_temp[22]" at CPU_Core.v(299)
+Info (10041): Inferred latch for "r_temp[23]" at CPU_Core.v(299)
+Info (10041): Inferred latch for "r_temp[24]" at CPU_Core.v(299)
+Info (10041): Inferred latch for "r_temp[25]" at CPU_Core.v(299)
+Info (10041): Inferred latch for "r_temp[26]" at CPU_Core.v(299)
+Info (10041): Inferred latch for "r_temp[27]" at CPU_Core.v(299)
+Info (10041): Inferred latch for "r_temp[28]" at CPU_Core.v(299)
+Info (10041): Inferred latch for "r_temp[29]" at CPU_Core.v(299)
+Info (10041): Inferred latch for "r_temp[30]" at CPU_Core.v(299)
+Info (10041): Inferred latch for "r_temp[31]" at CPU_Core.v(299)
+Info: Elaborating entity "Data_Memory" for hierarchy "CPU_Core_Main:DUT|Data_Memory:C9"
+Info: Elaborating entity "Mux_32_bit" for hierarchy "CPU_Core_Main:DUT|Mux_32_bit:C10"
+Info: Elaborating entity "mux3to1" for hierarchy "mux3to1:M1"
+Warning: Net is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs1[31]~0" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs1[30]~1" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs1[29]~2" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs1[28]~3" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs1[27]~4" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs1[26]~5" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs1[25]~6" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs1[24]~7" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs1[23]~8" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs1[22]~9" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs1[21]~10" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs1[20]~11" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs1[19]~12" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs1[18]~13" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs1[17]~14" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs1[16]~15" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs1[15]~16" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs1[14]~17" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs1[13]~18" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs1[12]~19" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs1[11]~20" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs1[10]~21" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs1[9]~22" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs1[8]~23" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs1[7]~24" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs1[6]~25" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs1[5]~26" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs2[31]~0" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs2[30]~1" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs2[29]~2" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs2[28]~3" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs2[27]~4" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs2[26]~5" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs2[25]~6" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs2[24]~7" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs2[23]~8" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs2[22]~9" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs2[21]~10" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs2[20]~11" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs2[19]~12" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs2[18]~13" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs2[17]~14" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs2[16]~15" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs2[15]~16" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs2[14]~17" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs2[13]~18" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs2[12]~19" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs2[11]~20" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs2[10]~21" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs2[9]~22" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs2[8]~23" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs2[7]~24" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs2[6]~25" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rs2[5]~26" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rd[31]~0" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rd[30]~1" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rd[29]~2" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rd[28]~3" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rd[27]~4" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rd[26]~5" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rd[25]~6" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rd[24]~7" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rd[23]~8" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rd[22]~9" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rd[21]~10" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rd[20]~11" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rd[19]~12" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rd[18]~13" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rd[17]~14" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rd[16]~15" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rd[15]~16" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rd[14]~17" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rd[13]~18" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rd[12]~19" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rd[11]~20" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rd[10]~21" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rd[9]~22" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rd[8]~23" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rd[7]~24" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rd[6]~25" is missing source, defaulting to GND
+    Warning (12110): Net "CPU_Core_Main:DUT|W_rd[5]~26" is missing source, defaulting to GND
+Info: Found 1 instances of uninferred RAM logic
+    Info: RAM logic "CPU_Core_Main:DUT|Register_File:C7|Regfile" is uninferred due to asynchronous read logic
+Warning: 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data1[4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data1[5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data1[6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data1[7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data1[0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data1[1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data1[2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data1[3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data2[4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[1]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data2[5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[1]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data2[6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[1]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data2[7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[1]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data2[0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[1]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data2[1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[1]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data2[2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[1]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data2[3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[1]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data2[12] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[1]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data1[12] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data2[11] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[1]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data1[11] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data2[10] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[1]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data1[10] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data2[9] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[1]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data1[9] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data2[8] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[1]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data1[8] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data2[13] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[1]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data1[13] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data2[14] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[1]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data1[14] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data1[15] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data2[15] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[1]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data1[16] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data2[16] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[1]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data1[17] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data2[17] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[1]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data1[18] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data2[18] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[1]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data1[19] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data2[19] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[1]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data1[20] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data2[20] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[1]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data1[21] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data2[21] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[1]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data1[22] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data2[22] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[1]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data1[23] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data2[23] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[1]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data1[24] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data2[24] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[1]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data1[25] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data2[25] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[1]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data1[26] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data2[26] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[1]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data1[27] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data2[27] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[1]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data1[28] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data2[28] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[1]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data1[29] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data2[29] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[1]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data1[30] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data2[30] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[1]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data1[31] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+Warning: Latch CPU_Core_Main:DUT|Register_File:C7|rd_data2[31] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[5]
+    Warning: Ports ENA and CLR on the latch are fed by the same signal CPU_Core_Main:DUT|Adder32Bit:C3|out[1]
+Warning: Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
+    Warning (13310): Register "CPU_Core_Main:DUT|Adder32Bit:C3|out[5]" is converted into an equivalent circuit using register "CPU_Core_Main:DUT|Adder32Bit:C3|out[5]~_emulated" and latch "CPU_Core_Main:DUT|Adder32Bit:C3|out[5]~latch"
+    Warning (13310): Register "CPU_Core_Main:DUT|Adder32Bit:C3|out[4]" is converted into an equivalent circuit using register "CPU_Core_Main:DUT|Adder32Bit:C3|out[4]~_emulated" and latch "CPU_Core_Main:DUT|Adder32Bit:C3|out[4]~latch"
+    Warning (13310): Register "CPU_Core_Main:DUT|Adder32Bit:C3|out[3]" is converted into an equivalent circuit using register "CPU_Core_Main:DUT|Adder32Bit:C3|out[3]~_emulated" and latch "CPU_Core_Main:DUT|Adder32Bit:C3|out[3]~latch"
+    Warning (13310): Register "CPU_Core_Main:DUT|Adder32Bit:C3|out[1]" is converted into an equivalent circuit using register "CPU_Core_Main:DUT|Adder32Bit:C3|out[1]~_emulated" and latch "CPU_Core_Main:DUT|Adder32Bit:C3|out[1]~latch"
+    Warning (13310): Register "CPU_Core_Main:DUT|Adder32Bit:C3|out[0]" is converted into an equivalent circuit using register "CPU_Core_Main:DUT|Adder32Bit:C3|out[0]~_emulated" and latch "CPU_Core_Main:DUT|Adder32Bit:C3|out[0]~latch"
+    Warning (13310): Register "CPU_Core_Main:DUT|Adder32Bit:C3|out[2]" is converted into an equivalent circuit using register "CPU_Core_Main:DUT|Adder32Bit:C3|out[2]~_emulated" and latch "CPU_Core_Main:DUT|Adder32Bit:C3|out[2]~latch"
+    Warning (13310): Register "CPU_Core_Main:DUT|Adder32Bit:C3|out[12]" is converted into an equivalent circuit using register "CPU_Core_Main:DUT|Adder32Bit:C3|out[12]~_emulated" and latch "CPU_Core_Main:DUT|Adder32Bit:C3|out[12]~latch"
+    Warning (13310): Register "CPU_Core_Main:DUT|Adder32Bit:C3|out[13]" is converted into an equivalent circuit using register "CPU_Core_Main:DUT|Adder32Bit:C3|out[13]~_emulated" and latch "CPU_Core_Main:DUT|Adder32Bit:C3|out[13]~latch"
+    Warning (13310): Register "CPU_Core_Main:DUT|Adder32Bit:C3|out[14]" is converted into an equivalent circuit using register "CPU_Core_Main:DUT|Adder32Bit:C3|out[14]~_emulated" and latch "CPU_Core_Main:DUT|Adder32Bit:C3|out[14]~latch"
+    Warning (13310): Register "CPU_Core_Main:DUT|Adder32Bit:C3|out[15]" is converted into an equivalent circuit using register "CPU_Core_Main:DUT|Adder32Bit:C3|out[15]~_emulated" and latch "CPU_Core_Main:DUT|Adder32Bit:C3|out[15]~latch"
+    Warning (13310): Register "CPU_Core_Main:DUT|Adder32Bit:C3|out[8]" is converted into an equivalent circuit using register "CPU_Core_Main:DUT|Adder32Bit:C3|out[8]~_emulated" and latch "CPU_Core_Main:DUT|Adder32Bit:C3|out[8]~latch"
+    Warning (13310): Register "CPU_Core_Main:DUT|Adder32Bit:C3|out[9]" is converted into an equivalent circuit using register "CPU_Core_Main:DUT|Adder32Bit:C3|out[9]~_emulated" and latch "CPU_Core_Main:DUT|Adder32Bit:C3|out[9]~latch"
+    Warning (13310): Register "CPU_Core_Main:DUT|Adder32Bit:C3|out[10]" is converted into an equivalent circuit using register "CPU_Core_Main:DUT|Adder32Bit:C3|out[10]~_emulated" and latch "CPU_Core_Main:DUT|Adder32Bit:C3|out[10]~latch"
+    Warning (13310): Register "CPU_Core_Main:DUT|Adder32Bit:C3|out[11]" is converted into an equivalent circuit using register "CPU_Core_Main:DUT|Adder32Bit:C3|out[11]~_emulated" and latch "CPU_Core_Main:DUT|Adder32Bit:C3|out[11]~latch"
+    Warning (13310): Register "CPU_Core_Main:DUT|Adder32Bit:C3|out[6]" is converted into an equivalent circuit using register "CPU_Core_Main:DUT|Adder32Bit:C3|out[6]~_emulated" and latch "CPU_Core_Main:DUT|Adder32Bit:C3|out[6]~latch"
+    Warning (13310): Register "CPU_Core_Main:DUT|Adder32Bit:C3|out[7]" is converted into an equivalent circuit using register "CPU_Core_Main:DUT|Adder32Bit:C3|out[7]~_emulated" and latch "CPU_Core_Main:DUT|Adder32Bit:C3|out[7]~latch"
+    Warning (13310): Register "CPU_Core_Main:DUT|Adder32Bit:C3|out[16]" is converted into an equivalent circuit using register "CPU_Core_Main:DUT|Adder32Bit:C3|out[16]~_emulated" and latch "CPU_Core_Main:DUT|Adder32Bit:C3|out[16]~latch"
+    Warning (13310): Register "CPU_Core_Main:DUT|Adder32Bit:C3|out[17]" is converted into an equivalent circuit using register "CPU_Core_Main:DUT|Adder32Bit:C3|out[17]~_emulated" and latch "CPU_Core_Main:DUT|Adder32Bit:C3|out[17]~latch"
+    Warning (13310): Register "CPU_Core_Main:DUT|Adder32Bit:C3|out[18]" is converted into an equivalent circuit using register "CPU_Core_Main:DUT|Adder32Bit:C3|out[18]~_emulated" and latch "CPU_Core_Main:DUT|Adder32Bit:C3|out[18]~latch"
+    Warning (13310): Register "CPU_Core_Main:DUT|Adder32Bit:C3|out[19]" is converted into an equivalent circuit using register "CPU_Core_Main:DUT|Adder32Bit:C3|out[19]~_emulated" and latch "CPU_Core_Main:DUT|Adder32Bit:C3|out[19]~latch"
+    Warning (13310): Register "CPU_Core_Main:DUT|Adder32Bit:C3|out[20]" is converted into an equivalent circuit using register "CPU_Core_Main:DUT|Adder32Bit:C3|out[20]~_emulated" and latch "CPU_Core_Main:DUT|Adder32Bit:C3|out[20]~latch"
+    Warning (13310): Register "CPU_Core_Main:DUT|Adder32Bit:C3|out[21]" is converted into an equivalent circuit using register "CPU_Core_Main:DUT|Adder32Bit:C3|out[21]~_emulated" and latch "CPU_Core_Main:DUT|Adder32Bit:C3|out[21]~latch"
+    Warning (13310): Register "CPU_Core_Main:DUT|Adder32Bit:C3|out[22]" is converted into an equivalent circuit using register "CPU_Core_Main:DUT|Adder32Bit:C3|out[22]~_emulated" and latch "CPU_Core_Main:DUT|Adder32Bit:C3|out[22]~latch"
+    Warning (13310): Register "CPU_Core_Main:DUT|Adder32Bit:C3|out[23]" is converted into an equivalent circuit using register "CPU_Core_Main:DUT|Adder32Bit:C3|out[23]~_emulated" and latch "CPU_Core_Main:DUT|Adder32Bit:C3|out[23]~latch"
+    Warning (13310): Register "CPU_Core_Main:DUT|Adder32Bit:C3|out[24]" is converted into an equivalent circuit using register "CPU_Core_Main:DUT|Adder32Bit:C3|out[24]~_emulated" and latch "CPU_Core_Main:DUT|Adder32Bit:C3|out[24]~latch"
+    Warning (13310): Register "CPU_Core_Main:DUT|Adder32Bit:C3|out[25]" is converted into an equivalent circuit using register "CPU_Core_Main:DUT|Adder32Bit:C3|out[25]~_emulated" and latch "CPU_Core_Main:DUT|Adder32Bit:C3|out[25]~latch"
+    Warning (13310): Register "CPU_Core_Main:DUT|Adder32Bit:C3|out[26]" is converted into an equivalent circuit using register "CPU_Core_Main:DUT|Adder32Bit:C3|out[26]~_emulated" and latch "CPU_Core_Main:DUT|Adder32Bit:C3|out[26]~latch"
+    Warning (13310): Register "CPU_Core_Main:DUT|Adder32Bit:C3|out[27]" is converted into an equivalent circuit using register "CPU_Core_Main:DUT|Adder32Bit:C3|out[27]~_emulated" and latch "CPU_Core_Main:DUT|Adder32Bit:C3|out[27]~latch"
+    Warning (13310): Register "CPU_Core_Main:DUT|Adder32Bit:C3|out[28]" is converted into an equivalent circuit using register "CPU_Core_Main:DUT|Adder32Bit:C3|out[28]~_emulated" and latch "CPU_Core_Main:DUT|Adder32Bit:C3|out[28]~latch"
+    Warning (13310): Register "CPU_Core_Main:DUT|Adder32Bit:C3|out[29]" is converted into an equivalent circuit using register "CPU_Core_Main:DUT|Adder32Bit:C3|out[29]~_emulated" and latch "CPU_Core_Main:DUT|Adder32Bit:C3|out[29]~latch"
+    Warning (13310): Register "CPU_Core_Main:DUT|Adder32Bit:C3|out[30]" is converted into an equivalent circuit using register "CPU_Core_Main:DUT|Adder32Bit:C3|out[30]~_emulated" and latch "CPU_Core_Main:DUT|Adder32Bit:C3|out[30]~latch"
+    Warning (13310): Register "CPU_Core_Main:DUT|Adder32Bit:C3|out[31]" is converted into an equivalent circuit using register "CPU_Core_Main:DUT|Adder32Bit:C3|out[31]~_emulated" and latch "CPU_Core_Main:DUT|Adder32Bit:C3|out[31]~latch"
+Warning: Output pins are stuck at VCC or GND
+    Warning (13410): Pin "LEDG[0]" is stuck at GND
+    Warning (13410): Pin "LEDG[1]" is stuck at GND
+    Warning (13410): Pin "LEDG[2]" is stuck at GND
+    Warning (13410): Pin "LEDG[3]" is stuck at GND
+    Warning (13410): Pin "LEDG[4]" is stuck at GND
+    Warning (13410): Pin "LEDG[5]" is stuck at GND
+    Warning (13410): Pin "LEDG[6]" is stuck at GND
+    Warning (13410): Pin "LEDG[7]" is stuck at GND
+Info: 347 registers lost all their fanouts during netlist optimizations. The first 100 are displayed below.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~544" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~545" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~546" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~547" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~548" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~549" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~550" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~551" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~552" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~553" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~554" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~555" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~556" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~557" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~558" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~559" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~560" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~561" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~562" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~563" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~564" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~565" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~566" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~567" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~568" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~569" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~570" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~571" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~572" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~573" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~574" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~575" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~608" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~609" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~610" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~611" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~612" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~613" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~614" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~615" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~616" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~617" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~618" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~619" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~620" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~621" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~622" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~623" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~624" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~625" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~626" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~627" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~628" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~629" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~630" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~631" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~632" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~633" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~634" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~635" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~636" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~637" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~638" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~639" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~672" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~673" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~674" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~675" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~676" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~677" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~678" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~679" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~680" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~681" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~682" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~683" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~684" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~685" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~686" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~687" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~688" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~689" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~690" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~691" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~692" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~693" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~694" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~695" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~696" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~697" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~698" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~699" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~700" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~701" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~702" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~703" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~736" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~737" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~738" lost all its fanouts during netlist optimizations.
+    Info: Register "CPU_Core_Main:DUT|Register_File:C7|Regfile~739" lost all its fanouts during netlist optimizations.
+    Info: List truncated at 100 items
+Info: Generated suppressed messages file C:/Users/Acer/OneDrive - VietNam National University - HCM INTERNATIONAL UNIVERSITY/Desktop/Project Prethesis/Main/CPU_Core.map.smsg
+Warning: Design contains 4 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "KEY[0]"
+    Warning (15610): No output dependent on input pin "KEY[1]"
+    Warning (15610): No output dependent on input pin "KEY[2]"
+    Warning (15610): No output dependent on input pin "KEY[3]"
+Info: Implemented 1173 device resources after synthesis - the final resource count might be different
+    Info: Implemented 22 input pins
+    Info: Implemented 82 output pins
+    Info: Implemented 1069 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 342 warnings
+    Info: Peak virtual memory: 241 megabytes
+    Info: Processing ended: Sun Jan 26 21:34:56 2025
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:03
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/Acer/OneDrive - VietNam National University - HCM INTERNATIONAL UNIVERSITY/Desktop/Project Prethesis/Main/CPU_Core.map.smsg.
+
+
