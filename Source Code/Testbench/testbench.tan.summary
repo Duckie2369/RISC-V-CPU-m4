@@ -2,14 +2,44 @@
 Timing Analyzer Summary
 --------------------------------------------------------------------------------------
 
+Type           : Worst-case tsu
+Slack          : N/A
+Required Time  : None
+Actual Time    : -1.221 ns
+From           : SW[0]
+To             : alu:DUT|r_temp[0]
+From Clock     : --
+To Clock       : SW[12]
+Failed Paths   : 0
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 14.842 ns
+From           : alu:DUT|r_temp[1]
+To             : HEX0[3]
+From Clock     : SW[17]
+To Clock       : --
+Failed Paths   : 0
+
 Type           : Worst-case tpd
 Slack          : N/A
 Required Time  : None
-Actual Time    : 11.560 ns
-From           : SW[17]
-To             : LEDG[2]
+Actual Time    : 15.534 ns
+From           : SW[15]
+To             : HEX0[3]
 From Clock     : --
 To Clock       : --
+Failed Paths   : 0
+
+Type           : Worst-case th
+Slack          : N/A
+Required Time  : None
+Actual Time    : 3.681 ns
+From           : SW[1]
+To             : alu:DUT|r_temp[1]
+From Clock     : --
+To Clock       : SW[17]
 Failed Paths   : 0
 
 Type           : Total number of failed paths
