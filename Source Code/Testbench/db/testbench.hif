@@ -19,39 +19,6 @@ VHSM_ON
 -- Start VHDL Libraries --
 -- End VHDL Libraries --
 # entity
-testbench
-# storage
-db|testbench.(0).cnf
-db|testbench.(0).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-PC.v
-fd8976fafe5bee69a8f3585f2f2ced99
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# macro_sequence
-
-# end
-# entity
 hex_ssd
 # storage
 db|testbench.(1).cnf
@@ -63,7 +30,7 @@ ON
 # case_sensitive
 # source_file
 PC.v
-fd8976fafe5bee69a8f3585f2f2ced99
+38f7dfa57dd25868e2b0335704dd276
 8
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -81,236 +48,15 @@ VERILOG_CONSTANT_LOOP_LIMIT
 VERILOG_NON_CONSTANT_LOOP_LIMIT
 250
 }
-# macro_sequence
-
-# end
-# entity
-Program_Counter
-# storage
-db|testbench.(2).cnf
-db|testbench.(2).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-PC.v
-fd8976fafe5bee69a8f3585f2f2ced99
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# macro_sequence
-
-# end
-# entity
-Shift_Right_1
-# storage
-db|testbench.(3).cnf
-db|testbench.(3).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-Shift_Right_1.v
-28bfafc12228dfbcf8a97c7621eef94
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# macro_sequence
-
-# end
-# entity
-Shift_Right_1_Bit
-# storage
-db|testbench.(4).cnf
-db|testbench.(4).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-Shift_Right_1.v
-28bfafc12228dfbcf8a97c7621eef94
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# macro_sequence
-
-# end
-# entity
-Adder_32_Bit
-# storage
-db|testbench.(5).cnf
-db|testbench.(5).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-Adder_32_Bit.v
-bc220fbcca6b26afa681d8b38365118
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# macro_sequence
-
-# end
-# entity
-Adder32Bit
-# storage
-db|testbench.(6).cnf
-db|testbench.(6).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-Adder_32_Bit.v
-bc220fbcca6b26afa681d8b38365118
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# macro_sequence
-
-# end
-# entity
-Imem
-# storage
-db|testbench.(7).cnf
-db|testbench.(7).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-Imem.v
-5726bb39aa27f852cf6658c7f3a6013
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# macro_sequence
-
-# end
-# entity
-Instruction_Memory
-# storage
-db|testbench.(8).cnf
-db|testbench.(8).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-Imem.v
-5726bb39aa27f852cf6658c7f3a6013
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
+# hierarchies {
+hex_ssd:C0
+hex_ssd:C1
+hex_ssd:C2
+hex_ssd:C3
+hex_ssd:C4
+hex_ssd:C5
+hex_ssd:C6
+hex_ssd:C7
 }
 # macro_sequence
 
@@ -318,8 +64,8 @@ VERILOG_NON_CONSTANT_LOOP_LIMIT
 # entity
 ALU
 # storage
-db|testbench.(11).cnf
-db|testbench.(11).cnf
+db|testbench.(0).cnf
+db|testbench.(0).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -327,7 +73,7 @@ ON
 # case_sensitive
 # source_file
 ALU.v
-682e111376b1b42130299a63c5bde596
+ffe476bd1f3ca88bd8d4c574d2873d1d
 8
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -345,14 +91,17 @@ VERILOG_CONSTANT_LOOP_LIMIT
 VERILOG_NON_CONSTANT_LOOP_LIMIT
 250
 }
+# hierarchies {
+|
+}
 # macro_sequence
 
 # end
 # entity
 alu
 # storage
-db|testbench.(12).cnf
-db|testbench.(12).cnf
+db|testbench.(2).cnf
+db|testbench.(2).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -360,7 +109,7 @@ ON
 # case_sensitive
 # source_file
 ALU.v
-682e111376b1b42130299a63c5bde596
+ffe476bd1f3ca88bd8d4c574d2873d1d
 8
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -560,305 +309,8 @@ ALU_OP_AND
 PARAMETER_UNSIGNED_BIN
 DEF
 }
-# macro_sequence
-
-# end
-# entity
-decode
-# storage
-db|testbench.(9).cnf
-db|testbench.(9).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-decode.v
-6db9629f9c323f81ba5188a2cf95a54
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# macro_sequence
-
-# end
-# entity
-Decoder
-# storage
-db|testbench.(10).cnf
-db|testbench.(10).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-decode.v
-6db9629f9c323f81ba5188a2cf95a54
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# user_parameter {
-OP_LUI
-01101
-PARAMETER_UNSIGNED_BIN
-DEF
-OP_AUIPC
-00101
-PARAMETER_UNSIGNED_BIN
-DEF
-OP_JAL
-11011
-PARAMETER_UNSIGNED_BIN
-DEF
-OP_JALR
-11001
-PARAMETER_UNSIGNED_BIN
-DEF
-OP_BRANCH
-11000
-PARAMETER_UNSIGNED_BIN
-DEF
-OP_STORE
-01000
-PARAMETER_UNSIGNED_BIN
-DEF
-OP_LOAD
-00000
-PARAMETER_UNSIGNED_BIN
-DEF
-}
-# macro_sequence
-
-# end
-# entity
-regfile
-# storage
-db|testbench.(13).cnf
-db|testbench.(13).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-regfile.v
-208c5c1ce907456a48433c5667e9e71
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# macro_sequence
-
-# end
-# entity
-Register_File
-# storage
-db|testbench.(14).cnf
-db|testbench.(14).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-regfile.v
-208c5c1ce907456a48433c5667e9e71
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# macro_sequence
-
-# end
-# entity
-Dmem
-# storage
-db|testbench.(15).cnf
-db|testbench.(15).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-Dmem.v
-52fb46e69aeacceb693a1cde6cca7eb4
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# macro_sequence
-
-# end
-# entity
-Data_Memory
-# storage
-db|testbench.(16).cnf
-db|testbench.(16).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-Dmem.v
-52fb46e69aeacceb693a1cde6cca7eb4
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# macro_sequence
-
-# end
-# entity
-control
-# storage
-db|testbench.(17).cnf
-db|testbench.(17).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-control.v
-cd84762f999f264c62d7ce68139bcccf
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
 # hierarchies {
-|
-}
-# macro_sequence
-
-# end
-# entity
-Control
-# storage
-db|testbench.(18).cnf
-db|testbench.(18).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-control.v
-cd84762f999f264c62d7ce68139bcccf
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# hierarchies {
-Control:DUT
+alu:DUT
 }
 # macro_sequence
 
